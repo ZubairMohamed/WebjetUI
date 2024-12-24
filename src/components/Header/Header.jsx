@@ -1,9 +1,11 @@
-export const Header = () => {
+const Header = () => {
     return (
         <>
-            <div>
-                Header hello
+            <div className="container mx-auto">
+                Hello from header
             </div>
         </>
     )
 }
+
+export default Header;

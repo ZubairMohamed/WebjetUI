@@ -1,12 +1,20 @@
 import './App.less'
+import Header from "./components/Header/Header.jsx";
+
 
 function App() {
 
   return (
     <>
-          <div className="container mx-auto bg-amber-300">
-              hello world
-          </div>
+        <Header />
+
+        {/* wrapper */}
+            {/* title */}
+            {/* filter */}
+            {/* search results */}
+            {/* banner   */}
+        {/* wrapper */}
+
     </>
   )
 }
