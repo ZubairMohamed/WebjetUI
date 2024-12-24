@@ -12,5 +12,6 @@ services:
       NODE_ENV: development
     stdin_open: true
     tty: false
+#    container_name: webjetui
     #this command should override the command in the dockerfile
     command: npm run dev
