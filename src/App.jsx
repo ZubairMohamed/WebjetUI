@@ -6,7 +6,11 @@ function App() {
 
   return (
     <>
-        <Header />
+        <div className="wrapper brand-bg-1">
+
+            <Header />
+
+        </div>
 
         {/* wrapper */}
             {/* title */}
