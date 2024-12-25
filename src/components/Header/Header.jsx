@@ -6,9 +6,12 @@
 const Header = () => {
     return (
         <>
-            <div className="container brand-bg-1 mx-auto w-[1384px] h-[98px] flex justify-center sm:justify-start ">
+            <div className="container brand-bg-1 mx-auto w-[1384px] h-[98px] flex items-center justify-center tablet:justify-start">
                 {/*Hello from header*/}
-                <img src="https://media.webjet.com.au/ui/images/webjet-logo-au-red.png" alt="webjet-logo" />
+
+                    <img src="https://media.webjet.com.au/ui/images/webjet-logo-au-red.png" alt="webjet-logo"
+                         className='h-[73px] pl-[12px]' />
+
             </div>
         </>
     )
