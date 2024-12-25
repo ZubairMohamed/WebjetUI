@@ -8,7 +8,7 @@ This ReadMe will provide some basic answers to getting Webjet UI setup and runni
 1. Follow the official documentation on dockers website to ensure that Docker is setup and running on your system. 
    - Visit https://docs.docker.com/get-started/get-docker/ and pick your desired OS to follow the step by step guide. 
    - Internally Docker uses HyperV/WSL for windows you may also need to refer to https://learn.microsoft.com/en-us/windows/wsl/install to setup WSL.
-2. In your terminal of choice e.g. Powershell, CMD, Terminal clone this repo from Github `git clone` and change directory using `cd` into the root of this project. 
+2. In your terminal of choice e.g. Powershell, CMD, Terminal clone this repo from Github `git clone https://github.com/ZubairMohamed/WebjetUI.git` and change directory using `cd` into the root of this project. 
 3. Run the following command instruct docker to build the docker image `docker build -t webjetui .` named webjetui.
 4. Run the docker image using `docker compose up`. If you want to run the docker image in the background `docker compose up -d`
 5. You should now be able to open http://localhost:5173 in your browser of choice and see the website running.
@@ -40,6 +40,7 @@ A deployed version of the site can be accessed at https://webjetui.netlify.app/
 
 ## Design Decisions and Limitations 
 - This project uses Vite to bootstrap and build the React project. There are other tools available to do this like create react app etc.
+- Docker compose was used to accommodate a growing code base. We can easily spin up other services/backends using the compose file compared to docker run.
 
 #### React + Vite
 
