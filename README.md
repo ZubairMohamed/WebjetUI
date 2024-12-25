@@ -9,7 +9,7 @@ This ReadMe will provide some basic answers to getting Webjet UI setup and runni
    2. Visit https://docs.docker.com/get-started/get-docker/ and pick your desired OS to follow the step by step guide.
    3. Internally Docker uses HyperV/WSL for windows you may also need to refer to https://learn.microsoft.com/en-us/windows/wsl/install to setup WSL.
 2. In your terminal of choice e.g. Powershell, CMD, Terminal clone this repo from Github `git clone` and change directory using `cd` into the root of this project. 
-3. Run the following command instruct docker to build the docker image `docker build -t webjetui .`
+3. Run the following command instruct docker to build the docker image `docker build -t webjetui .` named webjetui.
 4. Run the docker image using `docker compose up`. If you want to run the docker image in the background `docker compose up -d`
 5. You should now be able to open http://localhost:5173 in your browser of choice and see the website running.
 
