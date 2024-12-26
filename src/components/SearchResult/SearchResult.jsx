@@ -7,6 +7,15 @@ SearchResult.propTypes = {
     price: PropTypes.number,
 }
 
+/**
+ * This component handles displaying a single hotel in the search results.
+ * @param title - The title of the hotel.
+ * @param stars - The star rating of the hotel.
+ * @param roomType - The room type description.
+ * @param price - The hotel room price.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export default function SearchResult({title, stars, roomType, price}) {
     return (
         <>

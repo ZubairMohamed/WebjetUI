@@ -1,8 +1,12 @@
-// this component is all search results returned as one component
 import SearchResultsDataFromJSON from "../../data/search-result-data.json"
 import {useEffect, useState} from "react";
 import SearchResult from "../SearchResult/SearchResult.jsx";
 
+/**
+ * This component consists of all search results returned as one single component. Internally it uses the Search Result component to display each result.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 const SearchResults = () => {
     const [searchResultsData, setSearchResultsData] = useState();
 
