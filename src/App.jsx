@@ -1,7 +1,7 @@
 import './App.less'
 import Header from "./components/Header/Header.jsx";
 import SearchInterface from "./components/SearchInterface/SearchInterface.jsx";
-
+import SearchResults from "./components/SearchResults/SearchResults.jsx";
 
 function App() {
 
@@ -16,15 +16,14 @@ function App() {
                 <h2 className={'pt-[20px] mb-[20px] brand-text-1 roboto-bold'}>550 Hotels Available in Melbourne</h2>
                 {/* title */}
 
-
                 {/* filters */}
-                <div>
+                <div className={''}>
 
                 </div>
                 {/* filters */}
 
                 {/* search results */}
-
+                    <SearchResults />
                 {/* search results */}
 
                 {/* banner */}
