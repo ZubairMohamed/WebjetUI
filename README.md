@@ -38,9 +38,17 @@ TO DO
 ## How can I see WebjetUI?
 A deployed version of the site can be accessed at https://webjetui.netlify.app/
 
+## How Breakpoints work in the code?
+- The breakpoints are mentioned inside the `tailwind.config.js` file.
+- Where the breakpoint is not explicitly mentioned it is treated as the code for mobile and above. If another breakpoint follows it with a competing style then once the breakpoint is met the style will be overriden with the other style.
+- The tablet breakpoint `'tablet': '768px'` describes the situation where the width/viewport is at a minimum of `768px` or above.
+- The laptop breakpoint `'laptop': '992px'` describes the situation where the width/viewport is at a minimum of `992px` or above. 
+- The desktop breakpoint `'desktop': '1200px'` describes the situation where the width/viewport is at a minimum of `1200px` or above.
+
 ## Design Decisions and Limitations 
 - This project uses Vite to bootstrap and build the React project. There are other tools available to do this like create react app etc.
 - Docker compose was used to accommodate a growing code base. We can easily spin up other services/backends using the compose file compared to docker run.
+- Project does not describe any fonts, font sizes, padding, margins, colours. To make estimates of these value I used various tools and technology such as Figma combined with my best judgement where appropriate. For example the UI seems to be using the Roboto font which would also match with fonts used across webjet.com.au. 
 
 #### React + Vite
 
