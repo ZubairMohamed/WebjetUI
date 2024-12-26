@@ -14,8 +14,6 @@ const SearchResults = () => {
         setSearchResultsData(SearchResultsDataFromJSON);
     }, []);
 
-    console.log(searchResultsData);
-
     return (
         <>
 
