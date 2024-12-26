@@ -1,7 +1,7 @@
 // this component is all search results returned as one component
 import SearchResultsDataFromJSON from "../../data/search-result-data.json"
 import {useEffect, useState} from "react";
-// import SearchResult from "/src/components/SearchResult/SearchResult.jsx";
+import SearchResult from "../SearchResult/SearchResult.jsx";
 
 const SearchResults = () => {
     const [searchResultsData, setSearchResultsData] = useState();
@@ -16,18 +16,13 @@ const SearchResults = () => {
         <>
 
             {searchResultsData !== undefined && searchResultsData.map((value, index) => {
-                // title, rating, pictures, roomType, price
                 return (
                     <>
-                        <div id={`${value.Title}-${index}`}>{value.Title}</div>
-                        <div id={`${value.Stars}-${index}`}>{value.Stars}</div>
-                        <div id={`${value.Room_Type}-${index}`}>{value.Room_Type}</div>
-                        <div id={`${value.Price}-${index}`}>{value.Price}</div>
+                        <SearchResult key={index} title={value.Title} stars={value.Stars} roomType={value.Room_Type} price={value.Price}  />
                     </>
 
                 );
             })}
-
 
         </>
     )

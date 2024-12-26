@@ -1,26 +1,20 @@
 import * as PropTypes from "prop-types";
 
 SearchResult.propTypes = {
-    title: PropTypes.any,
-    stars: PropTypes.any,
-    photoURL: PropTypes.any,
-    photoALTText: PropTypes.any,
-    roomType: PropTypes.any,
-    price: PropTypes.any
+    title: PropTypes.string,
+    stars: PropTypes.number,
+    roomType: PropTypes.string,
+    price: PropTypes.number,
 }
 
-// this is a single search result
-const SearchResult = ({title, stars, roomType, price, photoURL = null, photoALTText = null }) => {
+export default function SearchResult({title, stars, roomType, price}) {
+    return (
         <>
-            <div className={'w-[350px] h-[180px]'}>
-                <p>{title}</p>
-                <p>{stars}</p>
-                <p>{photoURL}</p>
-                <p>{photoALTText}</p>
-                <p>{roomType}</p>
-                <p>{price}</p>
-            </div>
+            <p>Title is: {title}</p>
+            <p>Stars is: {stars}</p>
+            <p>Room Type is: {roomType}</p>
+            <p>Price is: {price}</p>
+            <br/>
         </>
+    )
 }
-
-export default SearchResult;
