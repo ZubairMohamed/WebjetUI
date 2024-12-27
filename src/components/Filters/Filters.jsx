@@ -23,11 +23,12 @@ export default function Filters() {
                 <input className={'border border-black'} type="text" id="search" name="search" onChange={handleChange}/>
                 <hr/>
                 <h6 className={'roboto-bold'}>Quality Rating</h6>
-                <p>1</p>
-                <p>2</p>
-                <p>3</p>
-                <p>4</p>
+                <p>All</p>
                 <p>5</p>
+                <p>4</p>
+                <p>3</p>
+                <p>2</p>
+                <p>1</p>
             </div>
         </>
     )
