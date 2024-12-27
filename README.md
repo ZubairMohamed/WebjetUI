@@ -40,7 +40,7 @@ This ReadMe will provide some basic answers to getting Webjet UI setup and runni
 - Open `http://localhost:4173/` in your browser to view the built website. The terminal window should list the url to open if it is different to this one.
 - The project should be built using vite and a `dist` folder will appear in the root of this repo.
 - You can simply upload the dist folder to any web hosting provider like netlify and it will deploy the site for you. 
-- Many web hosting services allow you to integrate with GitHub by linking your repository the webhost can automatically deploy changes as a production ready website.
+- Many web hosting services allow you to integrate with GitHub. By linking your repository the webhost can automatically deploy changes as a production ready website.
 
 ## How can I see WebjetUI?
 A deployed version of the site can be accessed at https://webjetui.netlify.app/
