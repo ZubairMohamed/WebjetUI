@@ -20,7 +20,7 @@ SearchResult.propTypes = {
 export default function SearchResult({title, stars, roomType, price, isLast = false}) {
     return (
         <>
-            <div className={`w-full h-[180px] border border-solid border-gray-400 rounded-md  ${isLast == false && 'mb-[12px]'} shadow-md`}>
+            <div className={`w-full h-[180px] border border-solid border-gray-400 rounded-md  ${isLast == false && 'mb-5'} shadow-md`}>
                 <p>Title is: {title}</p>
                 <p>Stars is: {stars}</p>
                 <p>Room Type is: {roomType}</p>
