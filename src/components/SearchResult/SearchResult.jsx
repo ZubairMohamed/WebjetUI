@@ -6,6 +6,7 @@ SearchResult.propTypes = {
     roomType: PropTypes.string,
     price: PropTypes.number,
     isLast: PropTypes.bool,
+    displayResult: PropTypes.bool,
 }
 
 /**
@@ -17,15 +18,18 @@ SearchResult.propTypes = {
  * @returns {JSX.Element}
  * @constructor
  */
-export default function SearchResult({title, stars, roomType, price, isLast = false}) {
+export default function SearchResult({title, stars, roomType, price, isLast = false, displayResult = true}) {
     return (
         <>
-            <div className={`w-full h-[180px] border border-solid border-gray-400 rounded-md  ${isLast == false && 'mb-5'} shadow-md`}>
-                <p>Title is: {title}</p>
-                <p>Stars is: {stars}</p>
-                <p>Room Type is: {roomType}</p>
-                <p>Price is: {price}</p>
-            </div>
+            {/* Controls whether to display the result in searches */}
+            {displayResult ? (
+                <div className={`w-full h-[180px] border border-solid border-gray-400 rounded-md  ${isLast == false && 'mb-5'} shadow-md`}>
+                    <p>Title is: {title}</p>
+                    <p>Stars is: {stars}</p>
+                    <p>Room Type is: {roomType}</p>
+                    <p>Price is: {price}</p>
+                </div>
+                ) : null}
 
         </>
     )
