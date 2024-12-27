@@ -33,7 +33,14 @@ This ReadMe will provide some basic answers to getting Webjet UI setup and runni
 2. You should now be able to open http://localhost:5173 in your browser of choice and see the website running.
 
 ## How to build and deploy Webjet UI on a Server
-TO DO
+- Open terminal and make sure you have npm and node working by following the nvm guide.
+- In terminal navigate to the root of this repo using `cd`.
+- Type and run `npm run build`.
+- To serve the files locally from the dist folder you can run `npm run preview`. 
+- Open `http://localhost:4173/` in your browser to view the built website. The terminal window should list the url to open if it is different to this one.
+- The project should be built using vite and a `dist` folder will appear in the root of this repo.
+- You can simply upload the dist folder to any web hosting provider like netlify and it will deploy the site for you. 
+- Many web hosting services allow you to integrate with GitHub by linking your repository the webhost can automatically deploy changes as a production ready website.
 
 ## How can I see WebjetUI?
 A deployed version of the site can be accessed at https://webjetui.netlify.app/
