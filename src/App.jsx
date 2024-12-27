@@ -2,50 +2,64 @@ import './App.less'
 import Header from "./components/Header/Header.jsx";
 import SearchInterface from "./components/SearchInterface/SearchInterface.jsx";
 import SearchResults from "./components/SearchResults/SearchResults.jsx";
+import {createContext, useState} from "react";
+import Filters from "./components/Filters/Filters.jsx";
+
+export const AppContext = createContext(undefined);
 
 function App() {
 
+    /**
+     * This state is responsible for tracking the search keyword being used by the search filter
+     */
+    const [searchKeyword, setSearchKeyword] = useState(null);
+
+
   return (
     <>
-        <div className="wrapper brand-bg-1 roboto-regular">
+        <AppContext.Provider value={{searchKeyword, setSearchKeyword}}>
+            <div className="wrapper brand-bg-1 roboto-regular">
 
-            <Header />
+                <Header />
 
-            <SearchInterface title={
-                <h2 className={'pt-[20px] mb-[20px] brand-text-1 roboto-bold'}>550 Hotels Available in Melbourne</h2>
-            }>
+                <SearchInterface title={
+                    <h2 className={'pt-[20px] mb-[20px] brand-text-1 roboto-bold'}>550 Hotels Available in Melbourne</h2>
+                }>
 
 
-                {/* filters */}
-                <div className={'flex-grow-1 flex-shrink-1 desktop:flex-shrink-0 basis-[275px]'}>
-                    these are filters
-                </div>
-                {/* filters */}
+                    {/*The current search keyword from outside is:*/}
+                    {/****{searchKeyword}****/}
 
-                {/* search results */}
+                    {/* filters */}
+                    <Filters />
+                    {/* filters */}
+
+                    {/* search results */}
                     <SearchResults />
 
 
 
-                {/* banner */}
-                <div className={`flex-grow-1 flex-shrink-1 desktop:flex-shrink-0 basis-[160px]`}>
-                    This is a banner
-                </div>
-                {/* banner */}
+                    {/* banner */}
+                    <div className={`flex-grow-1 flex-shrink-1 desktop:flex-shrink-0 basis-[160px]`}>
+                        This is a banner
+                    </div>
+                    {/* banner */}
 
-            </SearchInterface>
+                </SearchInterface>
 
-            <p className={'mt-4'}>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores, consequatur consequuntur culpa cumque debitis dolore error eum facilis illo ipsum molestias neque nobis non perferendis quam, quia, quibusdam ratione sunt vero. Aliquam eaque eum exercitationem fugiat magnam, molestias optio quisquam ullam. Ab cupiditate hic ipsum laborum molestiae mollitia, nisi quae quibusdam sit sunt. Ab, debitis deserunt dicta dolorem dolorum ex fugit hic in iste maiores mollitia, odit placeat praesentium ut voluptas? Autem, enim impedit maiores nostrum numquam quaerat, quos recusandae suscipit tempora totam vel vitae voluptates voluptatum. Aliquam animi earum et labore nisi officiis qui quis sed sint ullam.</p>
-            {/* search results */}
+                <p className={'mt-4'}>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores, consequatur consequuntur culpa cumque debitis dolore error eum facilis illo ipsum molestias neque nobis non perferendis quam, quia, quibusdam ratione sunt vero. Aliquam eaque eum exercitationem fugiat magnam, molestias optio quisquam ullam. Ab cupiditate hic ipsum laborum molestiae mollitia, nisi quae quibusdam sit sunt. Ab, debitis deserunt dicta dolorem dolorum ex fugit hic in iste maiores mollitia, odit placeat praesentium ut voluptas? Autem, enim impedit maiores nostrum numquam quaerat, quos recusandae suscipit tempora totam vel vitae voluptates voluptatum. Aliquam animi earum et labore nisi officiis qui quis sed sint ullam.</p>
+                {/* search results */}
 
-        </div>
+            </div>
 
-        {/* wrapper */}
+            {/* wrapper */}
             {/* title */}
             {/* filter */}
             {/* search results */}
             {/* banner   */}
-        {/* wrapper */}
+            {/* wrapper */}
+        </AppContext.Provider>
+
 
     </>
   )
