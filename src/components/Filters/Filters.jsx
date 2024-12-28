@@ -1,5 +1,6 @@
 import {useContext} from "react";
 import {AppContext} from "../../App.jsx";
+import TextField from "@mui/material/TextField";
 
 export default function Filters() {
     const searchContext = useContext(AppContext);
@@ -21,6 +22,10 @@ export default function Filters() {
                 <h6 className={'roboto-bold'}>Hotel Name</h6>
                 <p>{searchKeyword}</p>
                 <input className={'border border-black'} type="text" id="search" name="search" onChange={handleChange}/>
+
+                <TextField id="outlined-basic" label="Outlined" variant="outlined" />
+                <TextField id="filled-basic" label="Filled" variant="filled" />
+                <TextField id="standard-basic" label="Standard" variant="standard" />
                 <hr/>
                 <h6 className={'roboto-bold'}>Quality Rating</h6>
                 <p>All</p>
