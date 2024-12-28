@@ -1,8 +1,12 @@
-import {useContext} from "react";
+import React, {useContext, useState} from "react";
 import {AppContext} from "../../App.jsx";
 import TextField from "@mui/material/TextField";
+import Button from "@mui/material/Button";
+import FormControlLabel from "@mui/material/FormControlLabel";
+import Checkbox from "@mui/material/Checkbox";
+import Box from "@mui/material/Box";
 
-export default function Filters() {
+function CustomFilters() {
     const searchContext = useContext(AppContext);
     const searchKeyword = searchContext.searchKeyword;
     const setSearchKeyword = searchContext.setSearchKeyword;
@@ -11,7 +15,10 @@ export default function Filters() {
         setSearchKeyword(event.target.value);
     }
 
-    console.log(searchKeyword);
+    const [checked, setChecked] = useState([true, false]);
+    //
+    // setChecked([true, false]);
+    // console.log(checked);
 
     return (
         <>
@@ -21,20 +28,64 @@ export default function Filters() {
                 <hr/>
                 <h6 className={'roboto-bold'}>Hotel Name</h6>
                 <p>{searchKeyword}</p>
-                <input className={'border border-black'} type="text" id="search" name="search" onChange={handleChange}/>
 
-                <TextField id="outlined-basic" label="Outlined" variant="outlined" />
-                <TextField id="filled-basic" label="Filled" variant="filled" />
-                <TextField id="standard-basic" label="Standard" variant="standard" />
+
+                <TextField InputLabelProps={{shrink: false}} id="outlined-basic" placeholder={'Enter Hotel Name'} variant="outlined" onChange={(event) => handleChange(event)}
+
+                           sx={{
+                               '& .MuiInputBase-root': {
+                                   paddingRight: '0'
+                               },
+                               '& .MuiInputBase-input': {
+                                   borderRight: '1px solid black'
+                               }
+                           }}
+                           slotProps={{
+                               input: {
+                                   endAdornment: <Button size="large" variant="text" sx={{height: '100%'}}>Go</Button>
+                               },
+                           }}
+                />
                 <hr/>
                 <h6 className={'roboto-bold'}>Quality Rating</h6>
-                <p>All</p>
-                <p>5</p>
-                <p>4</p>
-                <p>3</p>
-                <p>2</p>
-                <p>1</p>
+
+                <FormControlLabel
+                    label="All"
+                    control={
+                        <Checkbox
+                            checked={checked[0] && checked[1]}
+                            indeterminate={checked[0] !== checked[1]}
+                        />
+                    }
+                        />
+                <Box sx={{ display: 'flex', flexDirection: 'column', ml: 0 }}>
+                    <FormControlLabel
+                        label="5"
+                        control={<Checkbox   />}
+                    />
+                    <FormControlLabel
+                        label="4"
+                        control={<Checkbox   />}
+                    />
+                    <FormControlLabel
+                        label="3"
+                        control={<Checkbox   />}
+                    />
+                    <FormControlLabel
+                        label="2"
+                        control={<Checkbox   />}
+                    />
+                    <FormControlLabel
+                        label="1"
+                        control={<Checkbox   />}
+                    />
+                </Box>
+
             </div>
         </>
     )
 }
+
+const Filters = React.memo(CustomFilters);
+
+export default Filters;
