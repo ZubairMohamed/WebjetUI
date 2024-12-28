@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import {AppContext} from "../../App.jsx";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
@@ -8,17 +8,41 @@ import Box from "@mui/material/Box";
 
 function CustomFilters() {
     const searchContext = useContext(AppContext);
+
+    // hotel name search field
     const searchKeyword = searchContext.searchKeyword;
     const setSearchKeyword = searchContext.setSearchKeyword;
+
+    // hotel rating field
+    // returns an array where the position of the element in the array represents the raiting number
+    // [true, true, true, false, false] => show me hotels with a raiting of [1, 2, 3]
+    // here [4, 5] are set to false
+    const searchByRatingCheckboxesOneToFive = searchContext.searchByRatingCheckboxesOneToFive;
+    const setSearchByRatingCheckboxesOneToFive = searchContext.setSearchByRatingCheckboxesOneToFive;
 
     const handleChange = (event) => {
         setSearchKeyword(event.target.value);
     }
 
+    const handleCheckboxChange = (event, checkedValue) => {
+        const updatedSearchByRatingCheckboxesOneToFive = [...searchByRatingCheckboxesOneToFive];
+        updatedSearchByRatingCheckboxesOneToFive[checkedValue] = !updatedSearchByRatingCheckboxesOneToFive[checkedValue];
+
+        setSearchByRatingCheckboxesOneToFive(prevState => {
+            return updatedSearchByRatingCheckboxesOneToFive;
+        });
+    }
+
+    const handleAllToggle = (event) => {
+        setSearchByRatingCheckboxesOneToFive(prevState => {
+            return [true, true, true, true, true];
+        });
+    }
+
     const [checked, setChecked] = useState([true, false]);
     //
     // setChecked([true, false]);
-    // console.log(checked);
+
 
     return (
         <>
@@ -49,35 +73,45 @@ function CustomFilters() {
                 <hr/>
                 <h6 className={'roboto-bold'}>Quality Rating</h6>
 
+
+
                 <FormControlLabel
                     label="All"
                     control={
                         <Checkbox
-                            checked={checked[0] && checked[1]}
-                            indeterminate={checked[0] !== checked[1]}
+                            checked={Object.values(searchByRatingCheckboxesOneToFive).every(checkboxvalue => checkboxvalue === true)}
+                            onChange={(event) => handleAllToggle(event)}
+                            // checked={searchByRatingCheckboxesOneToFive[0] && searchByRatingCheckboxesOneToFive[1] && searchByRatingCheckboxesOneToFive[2] && searchByRatingCheckboxesOneToFive[3] && searchByRatingCheckboxesOneToFive[4]}
+                            // indeterminate={searchByRatingCheckboxesOneToFive[0] !== searchByRatingCheckboxesOneToFive[1] !== searchByRatingCheckboxesOneToFive[2] !== searchByRatingCheckboxesOneToFive[3] !== searchByRatingCheckboxesOneToFive[4]}                            checked={searchByRatingCheckboxesOneToFive[0] && searchByRatingCheckboxesOneToFive[1] && searchByRatingCheckboxesOneToFive[2] && searchByRatingCheckboxesOneToFive[3] && searchByRatingCheckboxesOneToFive[4]}
+                            // indeterminate={searchByRatingCheckboxesOneToFive[0] !== searchByRatingCheckboxesOneToFive[1] !== searchByRatingCheckboxesOneToFive[2]}
                         />
                     }
                         />
                 <Box sx={{ display: 'flex', flexDirection: 'column', ml: 0 }}>
                     <FormControlLabel
                         label="5"
-                        control={<Checkbox   />}
+                        control={<Checkbox checked={searchByRatingCheckboxesOneToFive[4]}   />}
+                        onChange={(event) => handleCheckboxChange(event, 4)}
                     />
                     <FormControlLabel
                         label="4"
-                        control={<Checkbox   />}
+                        control={<Checkbox checked={searchByRatingCheckboxesOneToFive[3]}  />}
+                        onChange={(event) => handleCheckboxChange(event, 3)}
                     />
                     <FormControlLabel
                         label="3"
-                        control={<Checkbox   />}
+                        control={<Checkbox checked={searchByRatingCheckboxesOneToFive[2]}  />}
+                        onChange={(event) => handleCheckboxChange(event, 2)}
                     />
                     <FormControlLabel
                         label="2"
-                        control={<Checkbox   />}
+                        control={<Checkbox checked={searchByRatingCheckboxesOneToFive[1]}  />}
+                        onChange={(event) => handleCheckboxChange(event, 1)}
                     />
                     <FormControlLabel
                         label="1"
-                        control={<Checkbox   />}
+                        control={<Checkbox  checked={searchByRatingCheckboxesOneToFive[0]} />}
+                        onChange={(event) => handleCheckboxChange(event, 0)}
                     />
                 </Box>
 
