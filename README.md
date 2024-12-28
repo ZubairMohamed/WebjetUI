@@ -57,6 +57,8 @@ A deployed version of the site can be accessed at https://webjetui.netlify.app/
 - Docker compose was used to accommodate a growing code base. We can easily spin up other services/backends using the compose file compared to docker run.
 - Project does not describe any fonts, font sizes, padding, margins, colours. To make estimates of these value I used various tools and technology such as Figma combined with my best judgement where appropriate. For example the UI seems to be using the Roboto font which would also match with fonts used across webjet.com.au.
 - At the time of developing React 19 has just been released. I still opted for React 18 as this has been used in the field for longer than the latest version which is helpful for the stability of the project. It will also be supported for quite some time before we need to upgrade.
+- Certain components are not shown in the mockups e.g. filters section is not displayed in the mockup for tablet and mobile. Best judgement is used when mockup for components do not exist or are missing from a particular size display. 
+- Material UI (MUI) is a component library that was added to speed up app development. MUI contains prebuilt components that are performant and compliant with web standards. 
 
 #### React + Vite
 
