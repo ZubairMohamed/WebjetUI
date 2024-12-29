@@ -42,8 +42,7 @@ function App() {
 
                 </SearchInterface>
 
-                <p className={'mt-4'}>  Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto asperiores, consequatur consequuntur culpa cumque debitis dolore error eum facilis illo ipsum molestias neque nobis non perferendis quam, quia, quibusdam ratione sunt vero. Aliquam eaque eum exercitationem fugiat magnam, molestias optio quisquam ullam. Ab cupiditate hic ipsum laborum molestiae mollitia, nisi quae quibusdam sit sunt. Ab, debitis deserunt dicta dolorem dolorum ex fugit hic in iste maiores mollitia, odit placeat praesentium ut voluptas? Autem, enim impedit maiores nostrum numquam quaerat, quos recusandae suscipit tempora totam vel vitae voluptates voluptatum. Aliquam animi earum et labore nisi officiis qui quis sed sint ullam.</p>
-                {/* search results */}
+=                {/* search results */}
 
             </div>
 
