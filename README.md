@@ -60,6 +60,7 @@ A deployed version of the site can be accessed at https://webjetui.netlify.app/
 - Certain components are not shown in the mockups e.g. filters section is not displayed in the mockup for tablet and mobile. Best judgement is used when mockup for components do not exist or are missing from a particular size display. 
 - Material UI (MUI) is a component library that was added to speed up app development. MUI contains prebuilt components that are performant and compliant with web standards.
 - Hotel Star Rating System: Since a hotel could receive a decimal point rating e.g `4.5 out of 5` stars a decision was made to treat the rating system as `X and up`. Here X becomes the lowest selected value. For example if the smallest checkbox selected is `2` then display all hotels with a rating of `2 or greater`. If no checkboxes are selected we would rather show the user all the hotels because we want to try to avoid the situation where no hotels are being displayed to increase conversions. When the smallest rating of 1 is selected, regardless of any other selections all hotels will be displayed that match the other filter criteria as the system adopts a `X & up` approach. Ideally this control would use a range slider to simplify its use and understandability to the end user.
+- To communicate more information to a user certain UI elements may have been added e.g. rating system text which shows which hotels will be displayed.
 
 #### React + Vite
 
