@@ -62,7 +62,7 @@ function CustomFilters() {
                 />
                 <hr/>
                 <h6 className={'roboto-bold'}>Quality Rating</h6>
-                <p>Showing all hotels with a rating of {lowestRatingSelected} and above.</p>
+                <p className={'text-sm mt-1'}>Showing hotels with ratings of {lowestRatingSelected} &amp; up.</p>
 
 
                 <FormControlLabel

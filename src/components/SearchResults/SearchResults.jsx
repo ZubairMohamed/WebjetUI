@@ -11,7 +11,7 @@ import {AppContext} from "../../contexts/AppContext.jsx";
 const SearchResults = () => {
     const [searchResultsData, setSearchResultsData] = useState();
 
-    const {searchKeyword} = useContext(AppContext);
+    const {searchKeyword, lowestRatingSelected} = useContext(AppContext);
 
 
 
@@ -30,21 +30,30 @@ const SearchResults = () => {
     function handleDisplayResult({title, rating}) {
         let hotelName = title.toString().toLowerCase();
 
+        let filterName = true;
+        let filterRating = true;
+
         //handle search term first
         if(searchKeyword === undefined || searchKeyword === null || searchKeyword === '') {
-            return true;
-        }
-
-        // searching the hotel name to find the search term
-        if(hotelName.includes(searchKeyword.toString().toLowerCase())) {
-            return true;
+            filterName = true;
         } else {
-            return false;
+            // searching the hotel name to find the search term
+            if(hotelName.includes(searchKeyword.toString().toLowerCase())) {
+                filterName = true;
+            } else {
+                filterName = false;
+            }
         }
-
-
 
         //handle raiting next
+        if(rating >= lowestRatingSelected) {
+            filterRating =  true;
+        } else {
+            filterRating = false;
+        }
+
+        return (filterName && filterRating);
+
     }
 
     return (

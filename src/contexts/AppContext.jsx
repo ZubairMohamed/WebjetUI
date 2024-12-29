@@ -33,6 +33,8 @@ export default function AppContextProvider({children}) {
             return index !== -1 ? index + 1 : 1
         })
 
+        searchByRatingCheckboxesOneToFive[index] = true;
+
     }, [searchByRatingCheckboxesOneToFive]);
 
 
