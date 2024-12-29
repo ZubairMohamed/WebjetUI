@@ -5,6 +5,9 @@ import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
+import { ImDiamonds } from "react-icons/im";
+import { GiDiamonds } from "react-icons/gi";
+import * as PropTypes from "prop-types";
 
 function CustomFilters() {
     // hotel name search field
@@ -79,27 +82,37 @@ function CustomFilters() {
                         />
                 <Box sx={{ display: 'flex', flexDirection: 'column', ml: 0 }}>
                     <FormControlLabel
-                        label="5 & up"
+                        label={
+                            <Stars numberOfStars={5} />
+                        }
                         control={<Checkbox checked={searchByRatingCheckboxesOneToFive[4]}   />}
                         onChange={(event) => handleCheckboxChange(event, 4)}
                     />
                     <FormControlLabel
-                        label="4 & up"
+                        label={
+                            <Stars numberOfStars={4} />
+                        }
                         control={<Checkbox checked={searchByRatingCheckboxesOneToFive[3]}  />}
                         onChange={(event) => handleCheckboxChange(event, 3)}
                     />
                     <FormControlLabel
-                        label="3 & up"
+                        label={
+                            <Stars numberOfStars={3} />
+                        }
                         control={<Checkbox checked={searchByRatingCheckboxesOneToFive[2]}  />}
                         onChange={(event) => handleCheckboxChange(event, 2)}
                     />
                     <FormControlLabel
-                        label="2 & up"
+                        label={
+                            <Stars numberOfStars={2} />
+                        }
                         control={<Checkbox checked={searchByRatingCheckboxesOneToFive[1]}  />}
                         onChange={(event) => handleCheckboxChange(event, 1)}
                     />
                     <FormControlLabel
-                        label="1 & up"
+                        label={
+                            <Stars numberOfStars={1} />
+                        }
                         control={<Checkbox  checked={searchByRatingCheckboxesOneToFive[0]} />}
                         onChange={(event) => handleCheckboxChange(event, 0)}
                     />
@@ -108,6 +121,21 @@ function CustomFilters() {
             </div>
         </>
     )
+}
+
+Stars.propTypes = {
+    numberOfStars: PropTypes.number,
+}
+
+function Stars({numberOfStars}) {
+    return (
+        <div className='flex items-center'>
+            {Array.from({length: numberOfStars}).map((_, index) => (
+                // <ImDiamonds key={index} className={'icon-fill-1'}  />
+                <GiDiamonds key={index} className={'icon-fill-1'} size={20} />
+            ))} <p className='text-sm ml-0.5'>&amp; up</p>
+        </div>
+    );
 }
 
 const Filters = React.memo(CustomFilters);
