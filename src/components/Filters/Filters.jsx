@@ -1,5 +1,5 @@
-import React, {useContext, useEffect, useState} from "react";
-import {AppContext} from "../../App.jsx";
+import React, {useContext, useState} from "react";
+import {AppContext} from "../../contexts/AppContext.jsx";
 import TextField from "@mui/material/TextField";
 import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
@@ -7,18 +7,13 @@ import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
 
 function CustomFilters() {
-    const searchContext = useContext(AppContext);
-
     // hotel name search field
-    const searchKeyword = searchContext.searchKeyword;
-    const setSearchKeyword = searchContext.setSearchKeyword;
+    const {searchKeyword, setSearchKeyword, searchByRatingCheckboxesOneToFive, setSearchByRatingCheckboxesOneToFive} = useContext(AppContext);
 
     // hotel rating field
     // returns an array where the position of the element in the array represents the raiting number
     // [true, true, true, false, false] => show me hotels with a raiting of [1, 2, 3]
     // here [4, 5] are set to false
-    const searchByRatingCheckboxesOneToFive = searchContext.searchByRatingCheckboxesOneToFive;
-    const setSearchByRatingCheckboxesOneToFive = searchContext.setSearchByRatingCheckboxesOneToFive;
 
     const handleChange = (event) => {
         setSearchKeyword(event.target.value);
@@ -38,11 +33,6 @@ function CustomFilters() {
             return [true, true, true, true, true];
         });
     }
-
-    const [checked, setChecked] = useState([true, false]);
-    //
-    // setChecked([true, false]);
-
 
     return (
         <>
