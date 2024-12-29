@@ -11,7 +11,7 @@ SearchInterface.propTypes = {children: PropTypes.any, title: PropTypes.element};
 export default function SearchInterface({children, title}){
     return (
         <>
-            <div className="w-full desktop:container desktop:mx-auto bg-white pl-[12px] pr-[12px] pb-[20px] ">
+            <div className="w-full desktop:container desktop:mx-auto bg-white pl-[12px] pr-[12px] pb-[20px] desktop:min-h-[750px] ">
                 {title}
                 <div className="flex flex-col desktop:flex-row gap-5">
                     {children}
