@@ -1,7 +1,7 @@
 import SearchResultsDataFromJSON from "../../data/search-result-data.json"
 import {useContext, useEffect, useState} from "react";
 import SearchResult from "../SearchResult/SearchResult.jsx";
-import {AppContext} from "../../App.jsx";
+import {AppContext} from "../../contexts/AppContext.jsx";
 
 /**
  * This component consists of all search results returned as one single component. Internally it uses the Search Result component to display each result.
@@ -11,9 +11,9 @@ import {AppContext} from "../../App.jsx";
 const SearchResults = () => {
     const [searchResultsData, setSearchResultsData] = useState();
 
-    const searchContext = useContext(AppContext);
-    const searchKeyword = searchContext.searchKeyword;
-    const setSearchKeyword = searchContext.setSearchKeyword;
+    const {searchKeyword} = useContext(AppContext);
+
+
 
     useEffect(() => {
         setSearchResultsData(SearchResultsDataFromJSON);

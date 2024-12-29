@@ -2,44 +2,22 @@ import './App.less'
 import Header from "./components/Header/Header.jsx";
 import SearchInterface from "./components/SearchInterface/SearchInterface.jsx";
 import SearchResults from "./components/SearchResults/SearchResults.jsx";
-import {createContext, useEffect, useState} from "react";
 import Filters from "./components/Filters/Filters.jsx";
+import AppContextProvider, {AppContext} from "./contexts/AppContext.jsx";
+import {useContext} from "react";
 
-export const AppContext = createContext(undefined);
 
 function App() {
 
-    /**
-     * This state is responsible for tracking the search keyword being used by the search filter
-     */
-    const [searchKeyword, setSearchKeyword] = useState(null);
-
-    /**
-     * By default vehicles of all raitings are selected
-     * searchByRaiting is an array that represents if a checkbox is checked
-     * The position of the array element determines the number of stars received by the hotel.
-     * In JS array elements are offset by one starting from position 0.
-     * e.g. [true, true, true, true, true] => means that hotels of rating [ 1, 2, 3, 4, 5] are to be visible
-     */
-    const [searchByRatingCheckboxesOneToFive, setSearchByRatingCheckboxesOneToFive] = useState([true, true, true, true, true]);
-    useEffect(() => {
-        console.log(searchByRatingCheckboxesOneToFive);
-    }, [searchByRatingCheckboxesOneToFive]);
 
   return (
     <>
-        <AppContext.Provider value={{searchKeyword, setSearchKeyword, searchByRatingCheckboxesOneToFive, setSearchByRatingCheckboxesOneToFive}}>
+        <AppContextProvider>
             <div className="wrapper brand-bg-1 roboto-regular">
 
                 <Header />
 
-                ***
-                {searchByRatingCheckboxesOneToFive[0] && <p>1 is checked</p>}
-                {searchByRatingCheckboxesOneToFive[1] && <p>2 is checked</p>}
-                {searchByRatingCheckboxesOneToFive[2] && <p>3 is checked</p>}
-                {searchByRatingCheckboxesOneToFive[3] && <p>4 is checked</p>}
-                {searchByRatingCheckboxesOneToFive[4] && <p>5 is checked</p>}
-                ***
+                <Test />
 
                 <SearchInterface title={
                     <h2 className={'pt-[20px] mb-[20px] brand-text-1 roboto-bold'}>550 Hotels Available in Melbourne</h2>
@@ -77,11 +55,27 @@ function App() {
             {/* search results */}
             {/* banner   */}
             {/* wrapper */}
-        </AppContext.Provider>
+        </AppContextProvider>
 
 
     </>
   )
+}
+
+export const Test = () => {
+    const {searchByRatingCheckboxesOneToFive} = useContext(AppContext);
+    return (
+        <div>
+            ***
+            {searchByRatingCheckboxesOneToFive && searchByRatingCheckboxesOneToFive[0] && <p>1 is checked</p>}
+            {searchByRatingCheckboxesOneToFive[1] && <p>2 is checked</p>}
+            {searchByRatingCheckboxesOneToFive[2] && <p>3 is checked</p>}
+            {searchByRatingCheckboxesOneToFive[3] && <p>4 is checked</p>}
+            {searchByRatingCheckboxesOneToFive[4] && <p>5 is checked</p>}
+            ***
+
+        </div>
+    )
 }
 
 export default App
