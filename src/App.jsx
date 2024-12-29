@@ -17,8 +17,6 @@ function App() {
 
                 <Header />
 
-                <Test />
-
                 <SearchInterface title={
                     <h2 className={'pt-[20px] mb-[20px] brand-text-1 roboto-bold'}>550 Hotels Available in Melbourne</h2>
                 }>

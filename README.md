@@ -58,7 +58,8 @@ A deployed version of the site can be accessed at https://webjetui.netlify.app/
 - Project does not describe any fonts, font sizes, padding, margins, colours. To make estimates of these value I used various tools and technology such as Figma combined with my best judgement where appropriate. For example the UI seems to be using the Roboto font which would also match with fonts used across webjet.com.au.
 - At the time of developing React 19 has just been released. I still opted for React 18 as this has been used in the field for longer than the latest version which is helpful for the stability of the project. It will also be supported for quite some time before we need to upgrade.
 - Certain components are not shown in the mockups e.g. filters section is not displayed in the mockup for tablet and mobile. Best judgement is used when mockup for components do not exist or are missing from a particular size display. 
-- Material UI (MUI) is a component library that was added to speed up app development. MUI contains prebuilt components that are performant and compliant with web standards. 
+- Material UI (MUI) is a component library that was added to speed up app development. MUI contains prebuilt components that are performant and compliant with web standards.
+- Hotel Star Rating System: Since a hotel could receive a decimal point raiting e.g 4.5 out of 5 stars a decision was made to treat the rating system as X and above. Here X becomes the lowest selected value. For example if the smallest checkbox selected is 2 then display all hotels with a rating of 2 or greater. If no checkboxes are selected we would rather show the user all the hotels because we want to try to avoid the situation where no hotels are being displayed to increase conversions. Ideally this control would use a range slider to simplify its use and understandability to the end user. 
 
 #### React + Vite
 

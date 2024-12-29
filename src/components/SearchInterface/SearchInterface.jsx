@@ -1,6 +1,6 @@
 import * as PropTypes from "prop-types";
 
-SearchInterface.propTypes = {children: PropTypes.any, title: PropTypes.string};
+SearchInterface.propTypes = {children: PropTypes.any, title: PropTypes.element};
 
 /**
  * This component is the parent component to the entire search interface consisting of filters, search results, banner, etc.

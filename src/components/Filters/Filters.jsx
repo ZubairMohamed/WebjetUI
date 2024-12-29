@@ -8,7 +8,7 @@ import Box from "@mui/material/Box";
 
 function CustomFilters() {
     // hotel name search field
-    const {searchKeyword, setSearchKeyword, searchByRatingCheckboxesOneToFive, setSearchByRatingCheckboxesOneToFive} = useContext(AppContext);
+    const {searchKeyword, setSearchKeyword, searchByRatingCheckboxesOneToFive, setSearchByRatingCheckboxesOneToFive, lowestRatingSelected} = useContext(AppContext);
 
     // hotel rating field
     // returns an array where the position of the element in the array represents the raiting number
@@ -62,14 +62,14 @@ function CustomFilters() {
                 />
                 <hr/>
                 <h6 className={'roboto-bold'}>Quality Rating</h6>
-
+                <p>Showing all hotels with a rating of {lowestRatingSelected} and above.</p>
 
 
                 <FormControlLabel
                     label="All"
                     control={
                         <Checkbox
-                            checked={Object.values(searchByRatingCheckboxesOneToFive).every(checkboxvalue => checkboxvalue === true)}
+                            checked={lowestRatingSelected === 1 || Object.values(searchByRatingCheckboxesOneToFive).every(checkboxvalue => checkboxvalue === true)}
                             onChange={(event) => handleAllToggle(event)}
                             // checked={searchByRatingCheckboxesOneToFive[0] && searchByRatingCheckboxesOneToFive[1] && searchByRatingCheckboxesOneToFive[2] && searchByRatingCheckboxesOneToFive[3] && searchByRatingCheckboxesOneToFive[4]}
                             // indeterminate={searchByRatingCheckboxesOneToFive[0] !== searchByRatingCheckboxesOneToFive[1] !== searchByRatingCheckboxesOneToFive[2] !== searchByRatingCheckboxesOneToFive[3] !== searchByRatingCheckboxesOneToFive[4]}                            checked={searchByRatingCheckboxesOneToFive[0] && searchByRatingCheckboxesOneToFive[1] && searchByRatingCheckboxesOneToFive[2] && searchByRatingCheckboxesOneToFive[3] && searchByRatingCheckboxesOneToFive[4]}
@@ -79,27 +79,27 @@ function CustomFilters() {
                         />
                 <Box sx={{ display: 'flex', flexDirection: 'column', ml: 0 }}>
                     <FormControlLabel
-                        label="5"
+                        label="5 & up"
                         control={<Checkbox checked={searchByRatingCheckboxesOneToFive[4]}   />}
                         onChange={(event) => handleCheckboxChange(event, 4)}
                     />
                     <FormControlLabel
-                        label="4"
+                        label="4 & up"
                         control={<Checkbox checked={searchByRatingCheckboxesOneToFive[3]}  />}
                         onChange={(event) => handleCheckboxChange(event, 3)}
                     />
                     <FormControlLabel
-                        label="3"
+                        label="3 & up"
                         control={<Checkbox checked={searchByRatingCheckboxesOneToFive[2]}  />}
                         onChange={(event) => handleCheckboxChange(event, 2)}
                     />
                     <FormControlLabel
-                        label="2"
+                        label="2 & up"
                         control={<Checkbox checked={searchByRatingCheckboxesOneToFive[1]}  />}
                         onChange={(event) => handleCheckboxChange(event, 1)}
                     />
                     <FormControlLabel
-                        label="1"
+                        label="1 & up"
                         control={<Checkbox  checked={searchByRatingCheckboxesOneToFive[0]} />}
                         onChange={(event) => handleCheckboxChange(event, 0)}
                     />

@@ -20,13 +20,26 @@ export default function AppContextProvider({children}) {
      * e.g. [true, true, true, true, true] => means that hotels of rating [ 1, 2, 3, 4, 5] are to be visible
      */
     const [searchByRatingCheckboxesOneToFive, setSearchByRatingCheckboxesOneToFive] = useState([true, true, true, true, true]);
+
+    // what is the lowest rating selected?
+    const [lowestRatingSelected, setLowestRatingSelected] = useState(1);
+
     useEffect(() => {
-        console.log(searchByRatingCheckboxesOneToFive);
+
+        let index = searchByRatingCheckboxesOneToFive.findIndex(selectedCheckbox => selectedCheckbox === true);
+
+        setLowestRatingSelected(prevState => {
+
+            return index !== -1 ? index + 1 : 1
+        })
+
     }, [searchByRatingCheckboxesOneToFive]);
 
 
+
+
     return (
-        <AppContext.Provider value={{searchKeyword, setSearchKeyword, searchByRatingCheckboxesOneToFive, setSearchByRatingCheckboxesOneToFive}}>
+        <AppContext.Provider value={{searchKeyword, setSearchKeyword, searchByRatingCheckboxesOneToFive, setSearchByRatingCheckboxesOneToFive, lowestRatingSelected, setLowestRatingSelected}}>
             {children}
         </AppContext.Provider>
     )
