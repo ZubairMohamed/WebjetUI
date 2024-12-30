@@ -35,7 +35,7 @@ export default function SearchResult({title, stars, roomType, price, isLast = fa
                         <div className="desc grow shrink basis laptop:basis-[374px] desktop:basis-[374px]">
                             <p className={'roboto-bold text-base'}>{title}</p>
                             <Stars numberOfStars={stars} isFilter={false} />
-                            {/*<p>{stars} stars</p>*/}
+                            <p>{stars} stars</p>
                             <p className={'hidden tablet:block text-[13px] whitespace-nowrap '}><span
                                 className={"roboto-bold"}>Room Type:</span> {roomType}
                             </p>
