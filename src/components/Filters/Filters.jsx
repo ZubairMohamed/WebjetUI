@@ -8,7 +8,11 @@ import Box from "@mui/material/Box";
 import Stars from "../Stars/Stars.jsx";
 import Divider from '@mui/material/Divider';
 
-
+/**
+ * Component that handles displaying the filters that show up in the search interface.
+ * @returns {Element}
+ * @constructor
+ */
 function CustomFilters() {
     // hotel name search field
     const {searchKeyword, setSearchKeyword, searchByRatingCheckboxesOneToFive, setSearchByRatingCheckboxesOneToFive, lowestRatingSelected} = useContext(AppContext);
@@ -51,7 +55,8 @@ function CustomFilters() {
 
                            sx={{
                                '& .MuiInputBase-root': {
-                                   paddingRight: '0'
+                                   paddingRight: '0',
+                                   borderRadius: '0',
                                },
                                '& .MuiInputBase-input': {
                                    borderRight: '1px solid black'
