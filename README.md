@@ -60,7 +60,10 @@ A deployed version of the site can be accessed at https://webjetui.netlify.app/
 - The desktop breakpoint `'desktop': '1200px'` describes the situation where the width/viewport is at a minimum of `1200px` or above.
 
 ## Code formatting using prettier
-Prettier is used across this codebase for automated code formatting. You may be required to make some adjustments to your IDE to enable prettier support. By standardising code formatting we can make sure that code remains formatted consistently for all files for multiple developers thereby improving readability. If we decide to make changes to the code format we can do this in one place and have it applied across the entire project using prettier. 
+Prettier is used across this codebase for automated code formatting. You may be required to make some adjustments to your IDE to enable prettier support. By standardising code formatting we can make sure that code remains formatted consistently for all files for multiple developers thereby improving readability. If we decide to make changes to the code format we can do this in one place and have it applied across the entire project using prettier.
+- The config files for prettier are stored in the root of this repo. 
+- The `.prettierrc.json` contains settings that can be changed as per our requirements.
+- The `.prettierignore` contains a list of files and directories that should be ignored by prettier.
 
 ### Enable prettier in Visual Studio Code (VS Code)
 - Ensure that you have followed the previous steps to install all packages using `npm install`
@@ -77,6 +80,10 @@ Prettier is used across this codebase for automated code formatting. You may be 
 - In the search window search for `prettier`. Alternatively navigate to `Languages & Frameworks > JavaScript > Prettier`.
 - Enable the option `Automatic Prettier configuration` and click the checkbox `Run on save`. You may need to restart your IDE for changes to apply.
 - For a video guide you can follow this tutorial https://youtu.be/V3Sf4j-nevI?si=xN_Xwu3r9zha6G1m
+
+### Manually run prettier using node
+- Open the terminal and cd into the root of this project
+- Run the command `npx prettier . --write` and prettier will automatically reformat all of the code in this project based on our settings and config files.
 
 ## Design Decisions and Limitations
 
