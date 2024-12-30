@@ -6,6 +6,8 @@ import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
 import Stars from "../Stars/Stars.jsx";
+import Divider from '@mui/material/Divider';
+
 
 function CustomFilters() {
     // hotel name search field
@@ -40,10 +42,10 @@ function CustomFilters() {
             <div
                 className={'flex-grow-1 flex-shrink-1 desktop:flex-shrink-0 basis-[275px] desktop:max-w-[275px] break-words'}>
                 <h6 className={'roboto-bold'}>Filter Results</h6>
-                <hr/>
-                <h6 className={'roboto-bold'}>Hotel Name</h6>
-                <p>{searchKeyword}</p>
 
+                <Divider sx={{mb: 2, mt: 2}}/>
+
+                <h6 className={'roboto-bold'}>Hotel Name</h6>
 
                 <TextField InputLabelProps={{shrink: false}} id="outlined-basic" placeholder={'Enter Hotel Name'} variant="outlined" onChange={(event) => handleChange(event)}
 
@@ -57,11 +59,12 @@ function CustomFilters() {
                            }}
                            slotProps={{
                                input: {
-                                   endAdornment: <Button size="large" variant="text" sx={{height: '100%'}}>Go</Button>
+                                   endAdornment: <Button size="large" variant="text" sx={{height: '100%', borderRadius: '0px' }}>Go</Button>
                                },
                            }}
                 />
-                <hr/>
+                <Divider sx={{mb: 2, mt: 2}}/>
+
                 <h6 className={'roboto-bold'}>Quality Rating</h6>
                 <p className={'text-sm mt-1'}>Showing hotels with ratings of {lowestRatingSelected} &amp; up.</p>
 
