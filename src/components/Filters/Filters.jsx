@@ -12,7 +12,7 @@ import Accordion from '@mui/material/Accordion';
 import AccordionSummary from '@mui/material/AccordionSummary';
 import AccordionDetails from '@mui/material/AccordionDetails';
 import Typography from '@mui/material/Typography';
-import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import ArrowDropUp from '@mui/icons-material/ArrowDropUp';
 import { useMediaQuery, useTheme } from '@mui/material';
 
 /**
@@ -95,7 +95,12 @@ function CustomFilters() {
                     }}
                 >
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<ArrowDropUp />}
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row-reverse', // Reverses the flex order to put the icon at the front
+                            alignItems: 'center',
+                        }}
                         aria-controls="hotelNamefilter-content"
                         id="hotelNamefilter"
                     >
@@ -166,9 +171,14 @@ function CustomFilters() {
                     }}
                 >
                     <AccordionSummary
-                        expandIcon={<ExpandMoreIcon />}
+                        expandIcon={<ArrowDropUp />}
                         aria-controls="hotelRatingfilter-content"
                         id="hotelRatingfilter"
+                        sx={{
+                            display: 'flex',
+                            flexDirection: 'row-reverse', // Reverses the flex order to put the icon at the front
+                            alignItems: 'center',
+                        }}
                     >
                         <Typography component="h6">
                             <span className={'roboto-bold'}>
