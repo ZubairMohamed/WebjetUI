@@ -4,6 +4,10 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import ArrowDropUp from '@mui/icons-material/ArrowDropUp';
 import Typography from '@mui/material/Typography';
 import AccordionDetails from '@mui/material/AccordionDetails';
+import Tooltip from '@mui/material/Tooltip';
+import IconButton from '@mui/material/IconButton';
+import InfoIcon from '@mui/icons-material/Info';
+import Box from '@mui/material/Box';
 
 /**
  * This custom accordion is used by Filters. Allows individual filters to be collapsed and expanded.
@@ -46,9 +50,16 @@ export default function CustomAccordion({ title, children, isDesktop }) {
                     aria-controls={`${title.replace(/\s+/g, '')}-content`}
                     id={`${title.replace(/\s+/g, '')}-filter`}
                 >
-                    <Typography component="h6">
-                        <span className={'roboto-bold'}>{title}</span>
-                    </Typography>
+                    <Box className={'flex flex-row items-center '}>
+                        <Typography component="h6">
+                            <span className={'roboto-bold'}>{title}</span>
+                        </Typography>
+                        <Tooltip title="Click the filter name to expand or collapse it">
+                            <IconButton>
+                                <InfoIcon fontSize={'small'} />
+                            </IconButton>
+                        </Tooltip>
+                    </Box>
                 </AccordionSummary>
                 <AccordionDetails>{children}</AccordionDetails>
             </Accordion>
