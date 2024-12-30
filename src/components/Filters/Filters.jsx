@@ -1,4 +1,4 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { AppContext } from '../../contexts/AppContext.jsx';
 import TextField from '@mui/material/TextField';
 import Button from '@mui/material/Button';
@@ -8,11 +8,6 @@ import Box from '@mui/material/Box';
 import Stars from '../Stars/Stars.jsx';
 import Divider from '@mui/material/Divider';
 import { VscSearch } from 'react-icons/vsc';
-import Accordion from '@mui/material/Accordion';
-import AccordionSummary from '@mui/material/AccordionSummary';
-import AccordionDetails from '@mui/material/AccordionDetails';
-import Typography from '@mui/material/Typography';
-import ArrowDropUp from '@mui/icons-material/ArrowDropUp';
 import { useMediaQuery, useTheme } from '@mui/material';
 import CustomAccordion from '../CustomAccordion/CustomAccordion.jsx';
 
@@ -27,39 +22,12 @@ function CustomFilters() {
 
     // hotel name search field
     const {
-        searchKeyword,
-        setSearchKeyword,
+        handleSearchTextFieldChange,
+        handleCheckboxChange,
+        handleAllCheckboxToggle,
         searchByRatingCheckboxesOneToFive,
-        setSearchByRatingCheckboxesOneToFive,
         lowestRatingSelected,
     } = useContext(AppContext);
-
-    // hotel rating field
-    // returns an array where the position of the element in the array represents the raiting number
-    // [true, true, true, false, false] => show me hotels with a raiting of [1, 2, 3]
-    // here [4, 5] are set to false
-
-    const handleChange = (event) => {
-        setSearchKeyword(event.target.value);
-    };
-
-    const handleCheckboxChange = (event, checkedValue) => {
-        const updatedSearchByRatingCheckboxesOneToFive = [
-            ...searchByRatingCheckboxesOneToFive,
-        ];
-        updatedSearchByRatingCheckboxesOneToFive[checkedValue] =
-            !updatedSearchByRatingCheckboxesOneToFive[checkedValue];
-
-        setSearchByRatingCheckboxesOneToFive((prevState) => {
-            return updatedSearchByRatingCheckboxesOneToFive;
-        });
-    };
-
-    const handleAllToggle = (event) => {
-        setSearchByRatingCheckboxesOneToFive((prevState) => {
-            return [true, true, true, true, true];
-        });
-    };
 
     return (
         <>
@@ -74,8 +42,11 @@ function CustomFilters() {
                 p={3}
             >
                 <h6 className={'roboto-bold'}>Filter Results</h6>
+                <Box component={'p'} className={'text-xs mt-1 desktop:hidden '}>
+                    Click on the filter to show or hide it.
+                </Box>
 
-                <Divider sx={{ mb: 2, mt: 2 }} />
+                <Divider sx={{ mb: 1, mt: 1 }} />
 
                 <CustomAccordion title={'Hotel Name'} isDesktop={isDesktop}>
                     <TextField
@@ -83,7 +54,7 @@ function CustomFilters() {
                         id="outlined-basic"
                         placeholder={'Enter Hotel Name'}
                         variant="outlined"
-                        onChange={(event) => handleChange(event)}
+                        onChange={(event) => handleSearchTextFieldChange(event)}
                         sx={{
                             // mb: '20px',
                             // mt: '20px',
@@ -118,7 +89,7 @@ function CustomFilters() {
                     />
                 </CustomAccordion>
 
-                <Divider sx={{ mb: 2, mt: 2 }} />
+                <Divider sx={{ mb: 1, mt: 1 }} />
 
                 <CustomAccordion title={'Quality Rating'} isDesktop={isDesktop}>
                     <p className={'text-sm mt-1'}>
@@ -137,7 +108,9 @@ function CustomFilters() {
                                             checkboxvalue === true
                                     )
                                 }
-                                onChange={(event) => handleAllToggle(event)}
+                                onChange={(event) =>
+                                    handleAllCheckboxToggle(event)
+                                }
                             />
                         }
                     />

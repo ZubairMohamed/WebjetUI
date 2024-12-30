@@ -38,6 +38,9 @@ export default function CustomAccordion({ title, children, isDesktop }) {
                         padding: '0px',
                         maxHeight: '40px',
                     },
+                    '& .MuiAccordionSummary-content.Mui-expanded': {
+                        margin: '10px 0',
+                    },
                 }}
             >
                 <AccordionSummary
@@ -54,7 +57,7 @@ export default function CustomAccordion({ title, children, isDesktop }) {
                         <Typography component="h6">
                             <span className={'roboto-bold'}>{title}</span>
                         </Typography>
-                        <Tooltip title="Click the filter name to expand or collapse it">
+                        <Tooltip title="Click on the filter to show or hide it">
                             <IconButton>
                                 <InfoIcon fontSize={'small'} />
                             </IconButton>

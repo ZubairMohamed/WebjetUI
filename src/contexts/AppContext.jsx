@@ -7,10 +7,22 @@ export const AppContext = createContext(null);
 AppContextProvider.propTypes = { children: PropTypes.any };
 
 export default function AppContextProvider({ children }) {
+    // ------------------------------SEARCH BOX -------------------------------- //
     /**
      * This state is responsible for tracking the search keyword being used by the search filter
      */
     const [searchKeyword, setSearchKeyword] = useState(null);
+
+    /**
+     * function that is run when a user types text into a textbox. Used by filters
+     * @param event
+     */
+    const handleSearchTextFieldChange = (event) => {
+        setSearchKeyword(event.target.value);
+    };
+    // ------------------------------SEARCH BOX -------------------------------- //
+
+    // ------------------------------STAR RATING -------------------------------- //
 
     /**
      * By default vehicles of all raitings are selected
@@ -39,11 +51,48 @@ export default function AppContextProvider({ children }) {
         searchByRatingCheckboxesOneToFive[index] = true;
     }, [searchByRatingCheckboxesOneToFive]);
 
+    // hotel rating field
+    // returns an array where the position of the element in the array represents the raiting number
+    // [true, true, true, false, false] => show me hotels with a raiting of [1, 2, 3]
+    // here [4, 5] are set to false
+
+    /**
+     * function that is run when a user clicks on a checkbox to display hotels with different star ratings.
+     * This is used by filters
+     * @param event
+     * @param checkedValue
+     */
+    const handleCheckboxChange = (event, checkedValue) => {
+        const updatedSearchByRatingCheckboxesOneToFive = [
+            ...searchByRatingCheckboxesOneToFive,
+        ];
+        updatedSearchByRatingCheckboxesOneToFive[checkedValue] =
+            !updatedSearchByRatingCheckboxesOneToFive[checkedValue];
+
+        setSearchByRatingCheckboxesOneToFive((prevState) => {
+            return updatedSearchByRatingCheckboxesOneToFive;
+        });
+    };
+
+    /**
+     * function that is run when a user clicks on the all stars checkbox used by filters.
+     * @param event
+     */
+    const handleAllCheckboxToggle = (event) => {
+        setSearchByRatingCheckboxesOneToFive((prevState) => {
+            return [true, true, true, true, true];
+        });
+    };
+    // ------------------------------STAR RATING -------------------------------- //
+
     return (
         <AppContext.Provider
             value={{
                 searchKeyword,
                 setSearchKeyword,
+                handleSearchTextFieldChange,
+                handleCheckboxChange,
+                handleAllCheckboxToggle,
                 searchByRatingCheckboxesOneToFive,
                 setSearchByRatingCheckboxesOneToFive,
                 lowestRatingSelected,
