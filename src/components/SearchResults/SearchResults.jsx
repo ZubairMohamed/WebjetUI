@@ -62,7 +62,7 @@ const SearchResults = () => {
                 {searchResultsData !== undefined && searchResultsData.map((value, index) => {
                     return (
                         <>
-                            <SearchResult key={value} displayResult={handleDisplayResult({title: value.Title, rating: value.Stars})}  isLast={searchResultsData.length - 1 == index} title={value.Title} stars={value.Stars} roomType={value.Room_Type} price={value.Price}  />
+                            <SearchResult key={value} displayResult={handleDisplayResult({title: value.Title, rating: value.Stars})}  isLast={searchResultsData.length - 1 == index} title={value.Title} stars={value.Stars} roomType={value.Room_Type} price={value.Price} imageUrl={value.Photo_URL[0]}  />
                         </>
 
                     );
