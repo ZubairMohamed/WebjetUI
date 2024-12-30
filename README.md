@@ -60,28 +60,33 @@ A deployed version of the site can be accessed at https://webjetui.netlify.app/
 - The desktop breakpoint `'desktop': '1200px'` describes the situation where the width/viewport is at a minimum of `1200px` or above.
 
 ## Code formatting using prettier
+
 Prettier is used across this codebase for automated code formatting. You may be required to make some adjustments to your IDE to enable prettier support. By standardising code formatting we can make sure that code remains formatted consistently for all files for multiple developers thereby improving readability. If we decide to make changes to the code format we can do this in one place and have it applied across the entire project using prettier.
-- The config files for prettier are stored in the root of this repo. 
+
+- The config files for prettier are stored in the root of this repo.
 - The `.prettierrc.json` contains settings that can be changed as per our requirements.
 - The `.prettierignore` contains a list of files and directories that should be ignored by prettier.
 
 ### Enable prettier in Visual Studio Code (VS Code)
+
 - Ensure that you have followed the previous steps to install all packages using `npm install`
-- You need to install the Prettier plugin from the VS Code extensions marketplace. You can do this by clicking on the extensions button and searching for Prettier then click on install. 
-- Go back and open any JSX file inside this codebase and press the keyboard shortcut `Cmd + SHIFT + P on macOS or CTRL + SHIFT + P on Windows`. 
+- You need to install the Prettier plugin from the VS Code extensions marketplace. You can do this by clicking on the extensions button and searching for Prettier then click on install.
+- Go back and open any JSX file inside this codebase and press the keyboard shortcut `Cmd + SHIFT + P on macOS or CTRL + SHIFT + P on Windows`.
 - Search for `Format Document` and hit enter. You may be asked to configure a default formatter, select `Prettier` as your default formatter.
 - To enable format on save `Cmd + , on macOS, or CTRL + , on Windows` to open settings and search for `Format On Save` in the search box. Tick the checkbox to enable the setting to `Format on Save`.
 - You can alternatively follow this guide for more help https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code
 
 ### Enable prettier in WebStorm/PHP Storm
+
 - Ensure that you have followed the previous steps to install all packages using `npm install`
 - See a list of all keyboard shortcuts in WebStorm here https://www.jetbrains.com/help/webstorm/mastering-keyboard-shortcuts.html
-- Open settings by pressing `CTRL + ALT + S`. In MacOS this shortcut should be `Cmd + ,`. Alternatively in the `hamburger menu` click on `File > Settings`. 
+- Open settings by pressing `CTRL + ALT + S`. In MacOS this shortcut should be `Cmd + ,`. Alternatively in the `hamburger menu` click on `File > Settings`.
 - In the search window search for `prettier`. Alternatively navigate to `Languages & Frameworks > JavaScript > Prettier`.
 - Enable the option `Automatic Prettier configuration` and click the checkbox `Run on save`. You may need to restart your IDE for changes to apply.
 - For a video guide you can follow this tutorial https://youtu.be/V3Sf4j-nevI?si=xN_Xwu3r9zha6G1m
 
 ### Manually run prettier using node
+
 - Open the terminal and cd into the root of this project
 - Run the command `npx prettier . --write` and prettier will automatically reformat all of the code in this project based on our settings and config files.
 
