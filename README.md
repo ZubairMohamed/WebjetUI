@@ -64,10 +64,10 @@ Prettier is used across this codebase for automated code formatting. You may be 
 
 ### Enable prettier in Visual Studio Code (VS Code)
 - Ensure that you have followed the previous steps to install all packages using `npm install`
-- You need to install the Prettier plugin from the VS Code extensions marketplace. You can do this by clicking on the extensions button and searching for Prettier. 
+- You need to install the Prettier plugin from the VS Code extensions marketplace. You can do this by clicking on the extensions button and searching for Prettier then click on install. 
 - Go back and open any JSX file inside this codebase and press the keyboard shortcut `Cmd + SHIFT + P on macOS or CTRL + SHIFT + P on Windows`. 
 - Search for `Format Document` and hit enter. You may be asked to configure a default formatter, select `Prettier` as your default formatter.
-- To enable format on save `Cmd + , on macOS, or CTRL + , on Windows` and search for `Format On Save` in the search box. Tick the checkbox to enable the setting.
+- To enable format on save `Cmd + , on macOS, or CTRL + , on Windows` to open settings and search for `Format On Save` in the search box. Tick the checkbox to enable the setting to `Format on Save`.
 - You can alternatively follow this guide for more help https://www.digitalocean.com/community/tutorials/how-to-format-code-with-prettier-in-visual-studio-code
 
 ### Enable prettier in WebStorm/PHP Storm
@@ -76,7 +76,7 @@ Prettier is used across this codebase for automated code formatting. You may be 
 - Open settings by pressing `CTRL + ALT + S`. In MacOS this shortcut should be `Cmd + ,`. Alternatively in the `hamburger menu` click on `File > Settings`. 
 - In the search window search for `prettier`. Alternatively navigate to `Languages & Frameworks > JavaScript > Prettier`.
 - Enable the option `Automatic Prettier configuration` and click the checkbox `Run on save`. You may need to restart your IDE for changes to apply.
-- For a video guide you can follow this https://youtu.be/V3Sf4j-nevI?si=xN_Xwu3r9zha6G1m
+- For a video guide you can follow this tutorial https://youtu.be/V3Sf4j-nevI?si=xN_Xwu3r9zha6G1m
 
 ## Design Decisions and Limitations
 
