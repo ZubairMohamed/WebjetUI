@@ -1,4 +1,5 @@
 import * as PropTypes from "prop-types";
+import Stars from "../Stars/Stars.jsx";
 
 SearchResult.propTypes = {
     title: PropTypes.string,
@@ -33,7 +34,8 @@ export default function SearchResult({title, stars, roomType, price, isLast = fa
                     <div className={'flex flex-row grow shrink basis-full '}>
                         <div className="desc grow shrink basis laptop:basis-[374px] desktop:basis-[374px]">
                             <p className={'roboto-bold text-base'}>{title}</p>
-                            <p>{stars} stars</p>
+                            <Stars numberOfStars={stars} isFilter={false} />
+                            {/*<p>{stars} stars</p>*/}
                             <p className={'hidden tablet:block text-[13px] whitespace-nowrap '}><span
                                 className={"roboto-bold"}>Room Type:</span> {roomType}
                             </p>

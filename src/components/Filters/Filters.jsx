@@ -5,9 +5,7 @@ import Button from "@mui/material/Button";
 import FormControlLabel from "@mui/material/FormControlLabel";
 import Checkbox from "@mui/material/Checkbox";
 import Box from "@mui/material/Box";
-import { ImDiamonds } from "react-icons/im";
-import { GiDiamonds } from "react-icons/gi";
-import * as PropTypes from "prop-types";
+import Stars from "../Stars/Stars.jsx";
 
 function CustomFilters() {
     // hotel name search field
@@ -123,20 +121,7 @@ function CustomFilters() {
     )
 }
 
-Stars.propTypes = {
-    numberOfStars: PropTypes.number,
-}
 
-function Stars({numberOfStars}) {
-    return (
-        <div className='flex items-center'>
-            {Array.from({length: numberOfStars}).map((_, index) => (
-                // <ImDiamonds key={index} className={'icon-fill-1'}  />
-                <GiDiamonds key={index} className={'icon-fill-1'} size={20} />
-            ))} <p className='text-sm ml-0.5'>&amp; up</p>
-        </div>
-    );
-}
 
 const Filters = React.memo(CustomFilters);
 
