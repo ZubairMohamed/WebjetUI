@@ -1,0 +1,9 @@
+# Ignore artifacts:
+build
+coverage
+.idea
+.vscode
+**/.git
+**/.svn
+**/.hg
+**/node_modules

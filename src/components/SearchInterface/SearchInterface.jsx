@@ -1,6 +1,9 @@
-import * as PropTypes from "prop-types";
+import * as PropTypes from 'prop-types';
 
-SearchInterface.propTypes = {children: PropTypes.any, title: PropTypes.element};
+SearchInterface.propTypes = {
+    children: PropTypes.any,
+    title: PropTypes.element,
+};
 
 /**
  * This component is the parent component to the entire search interface consisting of filters, search results, banner, etc.
@@ -8,7 +11,7 @@ SearchInterface.propTypes = {children: PropTypes.any, title: PropTypes.element};
  * @returns {JSX.Element}
  * @constructor
  */
-export default function SearchInterface({children, title}){
+export default function SearchInterface({ children, title }) {
     return (
         <>
             <div className="w-full desktop:container desktop:mx-auto bg-white pl-[12px] pr-[12px] pb-[20px] desktop:min-h-[750px] ">
@@ -18,5 +21,5 @@ export default function SearchInterface({children, title}){
                 </div>
             </div>
         </>
-    )
+    );
 }
