@@ -7,6 +7,13 @@ import Checkbox from '@mui/material/Checkbox';
 import Box from '@mui/material/Box';
 import Stars from '../Stars/Stars.jsx';
 import Divider from '@mui/material/Divider';
+import { VscSearch } from 'react-icons/vsc';
+import Accordion from '@mui/material/Accordion';
+import AccordionSummary from '@mui/material/AccordionSummary';
+import AccordionDetails from '@mui/material/AccordionDetails';
+import Typography from '@mui/material/Typography';
+import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
+import { useMediaQuery, useTheme } from '@mui/material';
 
 /**
  * Component that handles displaying the filters that show up in the search interface.
@@ -14,6 +21,9 @@ import Divider from '@mui/material/Divider';
  * @constructor
  */
 function CustomFilters() {
+    const theme = useTheme();
+    const isDesktop = useMediaQuery(theme.breakpoints.up('lg')); // Detect if screen width is medium or larger (desktop)
+
     // hotel name search field
     const {
         searchKeyword,
@@ -66,120 +76,204 @@ function CustomFilters() {
 
                 <Divider sx={{ mb: 2, mt: 2 }} />
 
-                <h6 className={'roboto-bold'}>Hotel Name</h6>
-
-                <TextField
-                    InputLabelProps={{ shrink: false }}
-                    id="outlined-basic"
-                    placeholder={'Enter Hotel Name'}
-                    variant="outlined"
-                    onChange={(event) => handleChange(event)}
+                <Accordion
+                    defaultExpanded={isDesktop}
                     sx={{
-                        mb: '20px',
-                        mt: '20px',
-                        '& .MuiOutlinedInput-input': {
-                            background: '#fff',
+                        background: 'none',
+                        boxShadow: 'none',
+                        '&:before': { height: '0px' },
+
+                        '&.MuiAccordion-root': {
+                            border: 'none', // remove border when collapsed
                         },
-                        '& .MuiInputBase-root': {
-                            paddingRight: '0',
-                            borderRadius: '0',
+                        '& .MuiAccordionDetails-root': {
+                            padding: '0px',
                         },
-                        '& .MuiInputBase-input': {
-                            borderRight: '1px solid #e6e6e6',
-                        },
-                    }}
-                    slotProps={{
-                        input: {
-                            endAdornment: (
-                                <Button
-                                    size="large"
-                                    variant="text"
-                                    sx={{
-                                        color: 'red',
-                                        height: '100%',
-                                        borderRadius: '0px',
-                                    }}
-                                >
-                                    Go
-                                </Button>
-                            ),
+                        '& .MuiAccordionSummary-root': {
+                            padding: '0px',
                         },
                     }}
-                />
+                >
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="hotelNamefilter-content"
+                        id="hotelNamefilter"
+                    >
+                        <Typography component="h6">
+                            <span className={'roboto-bold'}>Hotel Name</span>
+                        </Typography>
+                    </AccordionSummary>
+                    <AccordionDetails>
+                        <TextField
+                            InputLabelProps={{ shrink: false }}
+                            id="outlined-basic"
+                            placeholder={'Enter Hotel Name'}
+                            variant="outlined"
+                            onChange={(event) => handleChange(event)}
+                            sx={{
+                                // mb: '20px',
+                                // mt: '20px',
+                                '& .MuiOutlinedInput-input': {
+                                    background: '#fff',
+                                },
+                                '& .MuiInputBase-root': {
+                                    paddingRight: '0',
+                                    borderRadius: '0',
+                                },
+                                '& .MuiInputBase-input': {
+                                    borderRight: '1px solid #e6e6e6',
+                                },
+                            }}
+                            slotProps={{
+                                input: {
+                                    endAdornment: (
+                                        <Button
+                                            size="large"
+                                            variant="text"
+                                            sx={{
+                                                color: '#999999',
+                                                height: '100%',
+                                                borderRadius: '0px',
+                                            }}
+                                        >
+                                            <VscSearch size={20} />
+                                        </Button>
+                                    ),
+                                },
+                            }}
+                        />
+                    </AccordionDetails>
+                </Accordion>
+
                 <Divider sx={{ mb: 2, mt: 2 }} />
 
-                <h6 className={'roboto-bold'}>Quality Rating</h6>
-                <p className={'text-sm mt-1'}>
-                    Showing hotels with ratings of {lowestRatingSelected} &amp;
-                    up.
-                </p>
+                <Accordion
+                    defaultExpanded={isDesktop}
+                    sx={{
+                        background: 'none',
+                        border: 'none',
+                        boxShadow: 'none',
+                        '&:before': { height: '0px' },
+                        '&.MuiAccordion-root': {
+                            border: 'none', // remove border when collapsed
+                        },
+                        '& .MuiAccordionDetails-root': {
+                            padding: '0px',
+                        },
+                        '& .MuiAccordionSummary-root': {
+                            padding: '0px',
+                        },
+                    }}
+                >
+                    <AccordionSummary
+                        expandIcon={<ExpandMoreIcon />}
+                        aria-controls="hotelRatingfilter-content"
+                        id="hotelRatingfilter"
+                    >
+                        <Typography component="h6">
+                            <span className={'roboto-bold'}>
+                                Quality Rating
+                            </span>
+                        </Typography>
+                    </AccordionSummary>
 
-                <FormControlLabel
-                    label="All"
-                    control={
-                        <Checkbox
-                            checked={
-                                lowestRatingSelected === 1 ||
-                                Object.values(
-                                    searchByRatingCheckboxesOneToFive
-                                ).every(
-                                    (checkboxvalue) => checkboxvalue === true
-                                )
+                    <AccordionDetails>
+                        <p className={'text-sm mt-1'}>
+                            Showing hotels with ratings of{' '}
+                            {lowestRatingSelected}+
+                        </p>
+                        <FormControlLabel
+                            label="All"
+                            control={
+                                <Checkbox
+                                    checked={
+                                        lowestRatingSelected === 1 ||
+                                        Object.values(
+                                            searchByRatingCheckboxesOneToFive
+                                        ).every(
+                                            (checkboxvalue) =>
+                                                checkboxvalue === true
+                                        )
+                                    }
+                                    onChange={(event) => handleAllToggle(event)}
+                                />
                             }
-                            onChange={(event) => handleAllToggle(event)}
-                            // checked={searchByRatingCheckboxesOneToFive[0] && searchByRatingCheckboxesOneToFive[1] && searchByRatingCheckboxesOneToFive[2] && searchByRatingCheckboxesOneToFive[3] && searchByRatingCheckboxesOneToFive[4]}
-                            // indeterminate={searchByRatingCheckboxesOneToFive[0] !== searchByRatingCheckboxesOneToFive[1] !== searchByRatingCheckboxesOneToFive[2] !== searchByRatingCheckboxesOneToFive[3] !== searchByRatingCheckboxesOneToFive[4]}                            checked={searchByRatingCheckboxesOneToFive[0] && searchByRatingCheckboxesOneToFive[1] && searchByRatingCheckboxesOneToFive[2] && searchByRatingCheckboxesOneToFive[3] && searchByRatingCheckboxesOneToFive[4]}
-                            // indeterminate={searchByRatingCheckboxesOneToFive[0] !== searchByRatingCheckboxesOneToFive[1] !== searchByRatingCheckboxesOneToFive[2]}
                         />
-                    }
-                />
-                <Box sx={{ display: 'flex', flexDirection: 'column', ml: 0 }}>
-                    <FormControlLabel
-                        label={<Stars numberOfStars={5} />}
-                        control={
-                            <Checkbox
-                                checked={searchByRatingCheckboxesOneToFive[4]}
+                        <Box
+                            sx={{
+                                display: 'flex',
+                                flexDirection: 'column',
+                                ml: 0,
+                            }}
+                        >
+                            <FormControlLabel
+                                label={<Stars numberOfStars={5} />}
+                                control={
+                                    <Checkbox
+                                        checked={
+                                            searchByRatingCheckboxesOneToFive[4]
+                                        }
+                                    />
+                                }
+                                onChange={(event) =>
+                                    handleCheckboxChange(event, 4)
+                                }
                             />
-                        }
-                        onChange={(event) => handleCheckboxChange(event, 4)}
-                    />
-                    <FormControlLabel
-                        label={<Stars numberOfStars={4} />}
-                        control={
-                            <Checkbox
-                                checked={searchByRatingCheckboxesOneToFive[3]}
+                            <FormControlLabel
+                                label={<Stars numberOfStars={4} />}
+                                control={
+                                    <Checkbox
+                                        checked={
+                                            searchByRatingCheckboxesOneToFive[3]
+                                        }
+                                    />
+                                }
+                                onChange={(event) =>
+                                    handleCheckboxChange(event, 3)
+                                }
                             />
-                        }
-                        onChange={(event) => handleCheckboxChange(event, 3)}
-                    />
-                    <FormControlLabel
-                        label={<Stars numberOfStars={3} />}
-                        control={
-                            <Checkbox
-                                checked={searchByRatingCheckboxesOneToFive[2]}
+                            <FormControlLabel
+                                label={<Stars numberOfStars={3} />}
+                                control={
+                                    <Checkbox
+                                        checked={
+                                            searchByRatingCheckboxesOneToFive[2]
+                                        }
+                                    />
+                                }
+                                onChange={(event) =>
+                                    handleCheckboxChange(event, 2)
+                                }
                             />
-                        }
-                        onChange={(event) => handleCheckboxChange(event, 2)}
-                    />
-                    <FormControlLabel
-                        label={<Stars numberOfStars={2} />}
-                        control={
-                            <Checkbox
-                                checked={searchByRatingCheckboxesOneToFive[1]}
+                            <FormControlLabel
+                                label={<Stars numberOfStars={2} />}
+                                control={
+                                    <Checkbox
+                                        checked={
+                                            searchByRatingCheckboxesOneToFive[1]
+                                        }
+                                    />
+                                }
+                                onChange={(event) =>
+                                    handleCheckboxChange(event, 1)
+                                }
                             />
-                        }
-                        onChange={(event) => handleCheckboxChange(event, 1)}
-                    />
-                    <FormControlLabel
-                        label={<Stars numberOfStars={1} />}
-                        control={
-                            <Checkbox
-                                checked={searchByRatingCheckboxesOneToFive[0]}
+                            <FormControlLabel
+                                label={<Stars numberOfStars={1} />}
+                                control={
+                                    <Checkbox
+                                        checked={
+                                            searchByRatingCheckboxesOneToFive[0]
+                                        }
+                                    />
+                                }
+                                onChange={(event) =>
+                                    handleCheckboxChange(event, 0)
+                                }
                             />
-                        }
-                        onChange={(event) => handleCheckboxChange(event, 0)}
-                    />
-                </Box>
+                        </Box>
+                    </AccordionDetails>
+                </Accordion>
             </Box>
         </>
     );
