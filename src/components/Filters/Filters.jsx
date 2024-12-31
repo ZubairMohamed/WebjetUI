@@ -59,7 +59,7 @@ function CustomFilters() {
                         variant="outlined"
                         onChange={(event) => handleSearchTextFieldChange(event)}
                         sx={{
-                            // mb: '20px',
+                            mb: 2,
                             // mt: '20px',
                             height: '50px',
                             fontSize: '12px',
