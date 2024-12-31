@@ -1,12 +1,22 @@
 // This separates the AppContext Logic into its own file and prevents re-renders in child components
 import { createContext, useEffect, useState } from 'react';
 import * as PropTypes from 'prop-types';
+import SearchResultsDataFromJSON from '../data/search-result-data.json';
 
 export const AppContext = createContext(null);
 
 AppContextProvider.propTypes = { children: PropTypes.any };
 
 export default function AppContextProvider({ children }) {
+    // ------------------------------SEARCH RESULTS DATA -------------------------------- //
+
+    const [searchResultsData, setSearchResultsData] = useState();
+
+    useEffect(() => {
+        setSearchResultsData(SearchResultsDataFromJSON);
+    }, [SearchResultsDataFromJSON]);
+    // ------------------------------SEARCH RESULTS DATA -------------------------------- //
+
     // ------------------------------SEARCH BOX -------------------------------- //
     /**
      * This state is responsible for tracking the search keyword being used by the search filter
@@ -97,6 +107,7 @@ export default function AppContextProvider({ children }) {
                 setSearchByRatingCheckboxesOneToFive,
                 lowestRatingSelected,
                 setLowestRatingSelected,
+                searchResultsData,
             }}
         >
             {children}
