@@ -90,6 +90,11 @@ Prettier is used across this codebase for automated code formatting. You may be 
 - Open the terminal and cd into the root of this project
 - Run the command `npx prettier . --write` and prettier will automatically reformat all of the code in this project based on our settings and config files.
 
+## Smallest supported devices
+
+- Officially the smallest supported device is the iPhone SE iPhone SE (2nd generation) - 2020 or greater with the latest software updates. The screen width of this in pixels is `375px`.
+- WebjetUI should work at `300px` aswell. Any lower width and the experience will be severely compromised.
+
 ## Design Decisions and Limitations
 
 - This project uses Vite to bootstrap and build the React project. There are other tools available to do this like create react app etc.

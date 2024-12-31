@@ -1,6 +1,10 @@
 import * as PropTypes from 'prop-types';
 import Stars from '../Stars/Stars.jsx';
 import classes from './SearchResult.module.less';
+import Box from '@mui/material/Box';
+import Button from '@mui/material/Button';
+import IconButton from '@mui/material/IconButton';
+import ArrowRightIcon from '@mui/icons-material/ArrowRight';
 
 SearchResult.propTypes = {
     title: PropTypes.string,
@@ -55,7 +59,7 @@ export default function SearchResult({
                             'flex flex-row grow shrink basis-full gap-[14px]'
                         }
                     >
-                        <div className="flex flex-col tablet:gap-[14px] desc grow shrink basis laptop:basis-[374px] desktop:basis-[374px]">
+                        <div className="flex flex-col tablet:gap-[14px] desc grow shrink basis laptop:basis-[374px] p-2.5 desktop:basis-[374px]">
                             <p className={'roboto-bold text-base'}>{title}</p>
                             <Stars numberOfStars={stars} isFilter={false} />
                             <p
@@ -69,8 +73,28 @@ export default function SearchResult({
                                 {roomType}
                             </p>
                         </div>
-                        <div className="price grow-0 shrink basis-[170px] text-[26px] roboto-bold bg-grey-1 brand-text-5 flex justify-end p-[26px]">
-                            ${price}
+                        <div className="price grow-0 shrink basis-[170px] text-[26px] roboto-bold bg-grey-1 brand-text-5 flex items-end justify-end  tablet:items-stretch tablet:p-[26px]">
+                            <span
+                                className={'pb-2.5 pr-2 tablet:p-0 tablet:pr-0'}
+                            >
+                                ${price}
+                            </span>
+                            <Box
+                                className={
+                                    'tablet:hidden h-full brand-bg-3 cursor-pointer'
+                                }
+                            >
+                                <IconButton
+                                    disableRipple={true}
+                                    sx={{
+                                        height: '100%',
+                                    }}
+                                >
+                                    <ArrowRightIcon
+                                        sx={{ color: 'white' }}
+                                    ></ArrowRightIcon>
+                                </IconButton>
+                            </Box>
                         </div>
                     </div>
                 </div>
