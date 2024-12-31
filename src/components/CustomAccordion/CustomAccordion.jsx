@@ -60,9 +60,11 @@ export default function CustomAccordion({ title, children, isDesktop }) {
                     aria-controls={`${title.replace(/\s+/g, '')}-content`}
                     id={`${title.replace(/\s+/g, '')}-filter`}
                 >
-                    <Box className={'flex flex-row items-center brand-text-4'}>
+                    <Box className={'flex flex-row items-center brand-text-4 '}>
                         <Typography component="h6">
-                            <span className={'roboto-bold'}>{title}</span>
+                            <span className={' roboto-bold text-[13px]'}>
+                                {title}
+                            </span>
                         </Typography>
                     </Box>
                 </AccordionSummary>

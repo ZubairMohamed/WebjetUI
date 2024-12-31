@@ -49,7 +49,7 @@ function CustomFilters() {
                     Click on the filter to show or hide it.
                 </Box>
 
-                <Divider sx={{ mb: 1, mt: 1 }} />
+                <Divider sx={{ mb: 1, mt: 2 }} />
 
                 <CustomAccordion title={'Hotel Name'} isDesktop={isDesktop}>
                     <TextField
