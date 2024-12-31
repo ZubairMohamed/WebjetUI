@@ -57,11 +57,6 @@ export default function CustomAccordion({ title, children, isDesktop }) {
                         <Typography component="h6">
                             <span className={'roboto-bold'}>{title}</span>
                         </Typography>
-                        <Tooltip title="Click on the filter to show or hide it">
-                            <IconButton>
-                                <InfoIcon fontSize={'small'} />
-                            </IconButton>
-                        </Tooltip>
                     </Box>
                 </AccordionSummary>
                 <AccordionDetails>{children}</AccordionDetails>
