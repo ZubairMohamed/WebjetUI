@@ -54,7 +54,7 @@ export default function CustomAccordion({ title, children, isDesktop }) {
                 }}
             >
                 <AccordionSummary
-                    expandIcon={<ArrowDropUp />}
+                    expandIcon={<ArrowDropUp sx={{ color: '#646464' }} />}
                     sx={{
                         display: 'flex',
                         flexDirection: 'row-reverse', // Reverses the flex order to put the icon at the front
@@ -63,7 +63,7 @@ export default function CustomAccordion({ title, children, isDesktop }) {
                     aria-controls={`${title.replace(/\s+/g, '')}-content`}
                     id={`${title.replace(/\s+/g, '')}-filter`}
                 >
-                    <Box className={'flex flex-row items-center '}>
+                    <Box className={'flex flex-row items-center brand-text-4'}>
                         <Typography component="h6">
                             <span className={'roboto-bold'}>{title}</span>
                         </Typography>
