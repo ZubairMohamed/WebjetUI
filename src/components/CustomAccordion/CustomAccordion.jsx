@@ -4,9 +4,6 @@ import AccordionSummary from '@mui/material/AccordionSummary';
 import ArrowDropUp from '@mui/icons-material/ArrowDropUp';
 import Typography from '@mui/material/Typography';
 import AccordionDetails from '@mui/material/AccordionDetails';
-import Tooltip from '@mui/material/Tooltip';
-import IconButton from '@mui/material/IconButton';
-import InfoIcon from '@mui/icons-material/Info';
 import Box from '@mui/material/Box';
 import { useState } from 'react';
 
