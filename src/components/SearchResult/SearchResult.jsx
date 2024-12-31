@@ -46,11 +46,14 @@ export default function SearchResult({
                         />
                     </div>
 
-                    <div className={'flex flex-row grow shrink basis-full '}>
-                        <div className="desc grow shrink basis laptop:basis-[374px] desktop:basis-[374px]">
+                    <div
+                        className={
+                            'flex flex-row grow shrink basis-full gap-[14px]'
+                        }
+                    >
+                        <div className="flex flex-col tablet:gap-[14px] desc grow shrink basis laptop:basis-[374px] desktop:basis-[374px]">
                             <p className={'roboto-bold text-base'}>{title}</p>
                             <Stars numberOfStars={stars} isFilter={false} />
-                            <p>{stars} stars</p>
                             <p
                                 className={
                                     'hidden tablet:block text-[13px] whitespace-nowrap '
