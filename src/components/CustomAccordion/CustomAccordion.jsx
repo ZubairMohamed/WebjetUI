@@ -8,6 +8,7 @@ import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
 import Box from '@mui/material/Box';
+import { useState } from 'react';
 
 /**
  * This custom accordion is used by Filters. Allows individual filters to be collapsed and expanded.
@@ -19,10 +20,19 @@ import Box from '@mui/material/Box';
  * @constructor
  */
 export default function CustomAccordion({ title, children, isDesktop }) {
+    const [expanded, setExpanded] = useState(isDesktop);
+
+    const handleAccordionChange = (event, isExpanded) => {
+        setExpanded((expanded) => {
+            return !expanded;
+        });
+    };
+
     return (
         <>
             <Accordion
-                defaultExpanded={isDesktop}
+                expanded={expanded}
+                onChange={() => handleAccordionChange(event)}
                 sx={{
                     background: 'none',
                     boxShadow: 'none',
