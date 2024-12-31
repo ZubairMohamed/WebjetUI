@@ -66,7 +66,7 @@ export default function SearchResult({
                                 {roomType}
                             </p>
                         </div>
-                        <div className="price grow-0 shrink basis-[170px] text-[26px] roboto-bold bg-grey-1 flex justify-end p-[26px]">
+                        <div className="price grow-0 shrink basis-[170px] text-[26px] roboto-bold bg-grey-1 brand-text-5 flex justify-end p-[26px]">
                             ${price}
                         </div>
                     </div>
