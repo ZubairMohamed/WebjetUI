@@ -1,5 +1,6 @@
 import * as PropTypes from 'prop-types';
 import Stars from '../Stars/Stars.jsx';
+import classes from './SearchResult.module.less';
 
 SearchResult.propTypes = {
     title: PropTypes.string,
@@ -34,7 +35,7 @@ export default function SearchResult({
             {/* Controls whether to display the result in searches */}
             {displayResult ? (
                 <div
-                    className={`cursor-pointer flex flex-col tablet:flex-row w-full tablet:h-[180px] border border-solid border-gray-400 rounded-md  ${isLast == false && 'mb-5'} shadow-md`}
+                    className={`cursor-pointer flex flex-col tablet:flex-row w-full tablet:h-[180px] border border-solid ${classes.searchResultBorder} rounded-md  ${isLast == false && 'mb-5'} shadow-md`}
                 >
                     <div className="image grow shrink tablet:basis-[300px] desktop:basis-[350px]">
                         <img
@@ -56,7 +57,7 @@ export default function SearchResult({
                             <Stars numberOfStars={stars} isFilter={false} />
                             <p
                                 className={
-                                    'hidden tablet:block text-[13px] whitespace-nowrap '
+                                    'hidden tablet:block text-[13px] whitespace-nowrap brand-text-4'
                                 }
                             >
                                 <span className={'roboto-bold'}>
