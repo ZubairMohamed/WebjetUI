@@ -18,6 +18,9 @@ SearchResult.propTypes = {
  * @param stars - The star rating of the hotel.
  * @param roomType - The room type description.
  * @param price - The hotel room price.
+ * @param isLast - Used to determine if this is the last search result
+ * @param displayResult - Used to determine if the hotel is displayed in search results
+ * @param imageUrl - This is the link to the image displayed in search results
  * @returns {JSX.Element}
  * @constructor
  */
@@ -35,7 +38,7 @@ export default function SearchResult({
             {/* Controls whether to display the result in searches */}
             {displayResult ? (
                 <div
-                    className={`cursor-pointer flex flex-col tablet:flex-row w-full tablet:h-[180px] border border-solid ${classes.searchResultBorder} rounded-md  ${isLast == false && 'mb-5'} shadow-md`}
+                    className={`cursor-pointer flex flex-col tablet:flex-row w-full tablet:h-[180px] border border-solid ${classes.searchResultBorder} rounded-md  ${isLast === false && 'mb-5'} shadow-md`}
                 >
                     <div className="image grow shrink tablet:basis-[300px] desktop:basis-[350px]">
                         <img
