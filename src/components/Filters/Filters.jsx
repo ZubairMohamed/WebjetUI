@@ -61,6 +61,7 @@ function CustomFilters() {
                         sx={{
                             // mb: '20px',
                             // mt: '20px',
+                            height: '50px',
                             fontSize: '12px',
                             '& .MuiOutlinedInput-input': {
                                 background: '#fff',
