@@ -1,5 +1,4 @@
-import SearchResultsDataFromJSON from '../../data/search-result-data.json';
-import { useContext, useEffect, useState } from 'react';
+import { Fragment, useContext } from 'react';
 import SearchResult from '../SearchResult/SearchResult.jsx';
 import { AppContext } from '../../contexts/AppContext.jsx';
 
@@ -9,13 +8,8 @@ import { AppContext } from '../../contexts/AppContext.jsx';
  * @constructor
  */
 const SearchResults = () => {
-    const [searchResultsData, setSearchResultsData] = useState();
-
-    const { searchKeyword, lowestRatingSelected } = useContext(AppContext);
-
-    useEffect(() => {
-        setSearchResultsData(SearchResultsDataFromJSON);
-    }, []);
+    const { searchKeyword, lowestRatingSelected, searchResultsData } =
+        useContext(AppContext);
 
     /**
      * This function uses logic to decide if a search result should or should not be display.
@@ -63,9 +57,8 @@ const SearchResults = () => {
                 {searchResultsData !== undefined &&
                     searchResultsData.map((value, index) => {
                         return (
-                            <>
+                            <Fragment key={`${value.Title}-${index}`}>
                                 <SearchResult
-                                    key={value}
                                     displayResult={handleDisplayResult({
                                         title: value.Title,
                                         rating: value.Stars,
@@ -79,7 +72,7 @@ const SearchResults = () => {
                                     price={value.Price}
                                     imageUrl={value.Photo_URL[0]}
                                 />
-                            </>
+                            </Fragment>
                         );
                     })}
             </div>
