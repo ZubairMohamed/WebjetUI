@@ -100,7 +100,7 @@ function CustomFilters() {
                 <Divider sx={{ mb: 1, mt: 1 }} />
 
                 <CustomAccordion title={'Quality Rating'} isDesktop={isDesktop}>
-                    <p className={'text-sm mt-0 mb-2 text-[12px]'}>
+                    <p className={'mt-0 mb-2 text-[12px]'}>
                         Showing hotels with ratings of {lowestRatingSelected}+
                     </p>
                     <FormControlLabel
@@ -113,14 +113,14 @@ function CustomFilters() {
                         }}
                         control={
                             <Checkbox
-                                color={'default'}
+                                color="default"
                                 checked={
                                     lowestRatingSelected === 1 ||
                                     Object.values(
                                         searchByRatingCheckboxesOneToFive
                                     ).every(
-                                        (checkboxvalue) =>
-                                            checkboxvalue === true
+                                        (checkboxValue) =>
+                                            checkboxValue === true
                                     )
                                 }
                                 onChange={(event) =>
@@ -140,7 +140,7 @@ function CustomFilters() {
                             label={<Stars numberOfStars={5} />}
                             control={
                                 <Checkbox
-                                    color={'default'}
+                                    color="default"
                                     checked={
                                         searchByRatingCheckboxesOneToFive[4]
                                     }
@@ -152,7 +152,7 @@ function CustomFilters() {
                             label={<Stars numberOfStars={4} />}
                             control={
                                 <Checkbox
-                                    color={'default'}
+                                    color="default"
                                     checked={
                                         searchByRatingCheckboxesOneToFive[3]
                                     }
@@ -164,7 +164,7 @@ function CustomFilters() {
                             label={<Stars numberOfStars={3} />}
                             control={
                                 <Checkbox
-                                    color={'default'}
+                                    color="default"
                                     checked={
                                         searchByRatingCheckboxesOneToFive[2]
                                     }
@@ -176,7 +176,7 @@ function CustomFilters() {
                             label={<Stars numberOfStars={2} />}
                             control={
                                 <Checkbox
-                                    color={'default'}
+                                    color="default"
                                     checked={
                                         searchByRatingCheckboxesOneToFive[1]
                                     }
@@ -188,7 +188,7 @@ function CustomFilters() {
                             label={<Stars numberOfStars={1} />}
                             control={
                                 <Checkbox
-                                    color={'default'}
+                                    color="default"
                                     checked={
                                         searchByRatingCheckboxesOneToFive[0]
                                     }
