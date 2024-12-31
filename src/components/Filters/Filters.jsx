@@ -112,6 +112,7 @@ function CustomFilters() {
                         }}
                         control={
                             <Checkbox
+                                color={'default'}
                                 checked={
                                     lowestRatingSelected === 1 ||
                                     Object.values(
@@ -138,6 +139,7 @@ function CustomFilters() {
                             label={<Stars numberOfStars={5} />}
                             control={
                                 <Checkbox
+                                    color={'default'}
                                     checked={
                                         searchByRatingCheckboxesOneToFive[4]
                                     }
@@ -149,6 +151,7 @@ function CustomFilters() {
                             label={<Stars numberOfStars={4} />}
                             control={
                                 <Checkbox
+                                    color={'default'}
                                     checked={
                                         searchByRatingCheckboxesOneToFive[3]
                                     }
@@ -160,6 +163,7 @@ function CustomFilters() {
                             label={<Stars numberOfStars={3} />}
                             control={
                                 <Checkbox
+                                    color={'default'}
                                     checked={
                                         searchByRatingCheckboxesOneToFive[2]
                                     }
@@ -171,6 +175,7 @@ function CustomFilters() {
                             label={<Stars numberOfStars={2} />}
                             control={
                                 <Checkbox
+                                    color={'default'}
                                     checked={
                                         searchByRatingCheckboxesOneToFive[1]
                                     }
@@ -182,6 +187,7 @@ function CustomFilters() {
                             label={<Stars numberOfStars={1} />}
                             control={
                                 <Checkbox
+                                    color={'default'}
                                     checked={
                                         searchByRatingCheckboxesOneToFive[0]
                                     }
