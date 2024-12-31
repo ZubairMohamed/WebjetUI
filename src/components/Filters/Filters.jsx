@@ -41,8 +41,11 @@ function CustomFilters() {
                 pr={1}
                 p={3}
             >
-                <h6 className={'roboto-bold'}>Filter Results</h6>
-                <Box component={'p'} className={'text-xs mt-1 desktop:hidden '}>
+                <h6 className={'roboto-bold brand-text-5'}>Filter Results</h6>
+                <Box
+                    component={'p'}
+                    className={'text-xs mt-1 desktop:hidden brand-text-5'}
+                >
                     Click on the filter to show or hide it.
                 </Box>
 
