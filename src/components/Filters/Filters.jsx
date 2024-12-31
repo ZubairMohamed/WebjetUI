@@ -61,6 +61,7 @@ function CustomFilters() {
                         sx={{
                             // mb: '20px',
                             // mt: '20px',
+                            fontSize: '12px',
                             '& .MuiOutlinedInput-input': {
                                 background: '#fff',
                             },
@@ -70,6 +71,9 @@ function CustomFilters() {
                             },
                             '& .MuiInputBase-input': {
                                 borderRight: '1px solid #e6e6e6',
+                            },
+                            '& .MuiInputBase-input::placeholder': {
+                                fontSize: '12px', // Adjust font size of placeholder text
                             },
                         }}
                         slotProps={{
@@ -95,11 +99,17 @@ function CustomFilters() {
                 <Divider sx={{ mb: 1, mt: 1 }} />
 
                 <CustomAccordion title={'Quality Rating'} isDesktop={isDesktop}>
-                    <p className={'text-sm mt-1'}>
+                    <p className={'text-sm mt-0 mb-2 text-[12px]'}>
                         Showing hotels with ratings of {lowestRatingSelected}+
                     </p>
                     <FormControlLabel
                         label="All"
+                        sx={{
+                            fontSize: '13px',
+                            '& .MuiTypography-root': {
+                                fontSize: '13px',
+                            },
+                        }}
                         control={
                             <Checkbox
                                 checked={

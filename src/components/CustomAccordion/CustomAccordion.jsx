@@ -40,6 +40,7 @@ export default function CustomAccordion({ title, children, isDesktop }) {
                     },
                     '& .MuiAccordionDetails-root': {
                         padding: '0px',
+                        paddingLeft: '24px',
                     },
                     '& .MuiAccordionSummary-root': {
                         padding: '0px',

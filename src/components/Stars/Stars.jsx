@@ -34,7 +34,7 @@ export default function Stars({ numberOfStars, isFilter = true }) {
                     )}
                 </Fragment>
             ))}
-            {isFilter && <p className="text-sm ml-0.5">&amp; up</p>}
+            {isFilter && <p className="text-xs ml-0.5">&amp; up</p>}
         </div>
     );
 }
