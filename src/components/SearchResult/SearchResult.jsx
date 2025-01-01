@@ -85,6 +85,7 @@ export default function SearchResult({
                                 }
                             >
                                 <IconButton
+                                    aria-label={`Select-Hotel-Button-${title}`}
                                     disableRipple={true}
                                     sx={{
                                         height: '100%',

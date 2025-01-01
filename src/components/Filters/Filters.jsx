@@ -81,6 +81,7 @@ function CustomFilters() {
                             input: {
                                 endAdornment: (
                                     <Button
+                                        name={'Search-By-Hotel-Name'}
                                         size="large"
                                         variant="text"
                                         sx={{
