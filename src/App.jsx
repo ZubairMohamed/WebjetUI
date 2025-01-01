@@ -8,6 +8,7 @@ import { useContext } from 'react';
 import Tooltip from '@mui/material/Tooltip';
 import IconButton from '@mui/material/IconButton';
 import InfoIcon from '@mui/icons-material/Info';
+import { Banner } from './components/Banner/Banner.jsx';
 
 function App() {
     return (
@@ -37,11 +38,7 @@ function App() {
                         <SearchResults />
 
                         {/* banner */}
-                        <div
-                            className={`flex-grow-1 flex-shrink-1 desktop:flex-shrink-0 basis-[160px]`}
-                        >
-                            This is a banner
-                        </div>
+                        <Banner />
                         {/* banner */}
                     </SearchInterface>
                     = {/* search results */}
