@@ -21,7 +21,7 @@ export default function AppContextProvider({ children }) {
     /**
      * This state is responsible for tracking the search keyword being used by the search filter
      */
-    const [searchKeyword, setSearchKeyword] = useState(null);
+    const [searchKeyword, setSearchKeyword] = useState('');
 
     /**
      * function that is run when a user types text into a textbox. Used by filters
@@ -95,6 +95,38 @@ export default function AppContextProvider({ children }) {
     };
     // ------------------------------STAR RATING -------------------------------- //
 
+    // ------------------------------FILTERED SEARCH RESULTS DATA -------------------------------- //
+
+    const [filteredSearchResultsData, setFilteredSearchResultsData] =
+        useState();
+
+    useEffect(() => {
+        // check if searchKeyword is defined
+        if (searchKeyword === null || searchKeyword === undefined) {
+            return;
+        }
+
+        // check if searchResultsData
+        if (searchResultsData === null || searchResultsData === undefined) {
+            return;
+        }
+
+        let caseInsensitiveSearchKeyword = searchKeyword
+            .toString()
+            .toLowerCase();
+
+        let filteredData = searchResultsData.filter((searchResult) => {
+            return (
+                searchResult.Title.toLowerCase().includes(
+                    caseInsensitiveSearchKeyword
+                ) && searchResult.Stars >= lowestRatingSelected
+            );
+        });
+
+        setFilteredSearchResultsData(filteredData);
+    }, [searchResultsData, lowestRatingSelected, searchKeyword]);
+    // ------------------------------FILTERED SEARCH RESULTS DATA -------------------------------- //
+
     return (
         <AppContext.Provider
             value={{
@@ -108,6 +140,7 @@ export default function AppContextProvider({ children }) {
                 lowestRatingSelected,
                 setLowestRatingSelected,
                 searchResultsData,
+                filteredSearchResultsData,
             }}
         >
             {children}
