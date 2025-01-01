@@ -13,6 +13,7 @@ SearchResult.propTypes = {
     price: PropTypes.number,
     isLast: PropTypes.bool,
     imageUrl: PropTypes.string,
+    imageAltText: PropTypes.string,
     displayResult: PropTypes.bool,
 };
 
@@ -25,6 +26,7 @@ SearchResult.propTypes = {
  * @param isLast - Used to determine if this is the last search result
  * @param displayResult - Used to determine if the hotel is displayed in search results
  * @param imageUrl - This is the link to the image displayed in search results
+ * @param imageAltText - This is the text that is displayed in case the image is not loaded
  * @returns {JSX.Element}
  * @constructor
  */
@@ -36,6 +38,7 @@ export default function SearchResult({
     isLast = false,
     displayResult = true,
     imageUrl,
+    imageAltText,
 }) {
     return (
         <>
@@ -50,7 +53,7 @@ export default function SearchResult({
                                 'h-[120px] tablet:h-full w-full laptop:max-w-[350px] object-cover p-1'
                             }
                             src={imageUrl}
-                            alt="Hotel Image"
+                            alt={imageAltText}
                         />
                     </div>
 

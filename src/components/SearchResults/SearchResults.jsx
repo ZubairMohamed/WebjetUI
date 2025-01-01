@@ -102,6 +102,7 @@ const SearchResults = () => {
                                     roomType={value.Room_Type}
                                     price={value.Price}
                                     imageUrl={value.Photo_URL[0]}
+                                    imageAltText={value.Photo_ALT_Text[0]}
                                 />
                             </Fragment>
                         );
