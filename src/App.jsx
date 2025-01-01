@@ -41,7 +41,7 @@ function App() {
                         <Banner />
                         {/* banner */}
                     </SearchInterface>
-                    = {/* search results */}
+                    {/* search results */}
                 </div>
 
                 {/* wrapper */}
