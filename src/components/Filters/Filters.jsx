@@ -41,7 +41,9 @@ function CustomFilters() {
                 pr={1}
                 p={3}
             >
-                <h6 className={'roboto-bold brand-text-5'}>Filter Results</h6>
+                <h5 className={'text-base roboto-bold brand-text-5'}>
+                    Filter Results
+                </h5>
                 <Box
                     component={'p'}
                     className={'text-xs mt-1 desktop:hidden brand-text-5'}
