@@ -82,6 +82,7 @@ function CustomFilters() {
                                 endAdornment: (
                                     <Button
                                         name={'Search-By-Hotel-Name'}
+                                        aria-label={'Search-By-Hotel-Name'}
                                         size="large"
                                         variant="text"
                                         sx={{
