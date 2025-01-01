@@ -3,6 +3,11 @@ import Box from '@mui/material/Box';
 import mscLogo from '../../assets/images/msc-logo.png';
 import cruiseShipImage from '../../assets/images/cruise-ship.jpg';
 
+/**
+ * This component shows  the banner sale ad alongside search results.
+ * @returns {JSX.Element}
+ * @constructor
+ */
 export function Banner() {
     return (
         <>
