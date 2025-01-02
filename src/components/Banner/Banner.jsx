@@ -14,8 +14,12 @@ export function Banner() {
             <div
                 className={`   cursor-pointer  desktop:h-[600px] desktop:overflow-hidden text-white flex-grow-1 flex-shrink-1 desktop:flex-shrink-0 basis-[160px] h-[800px] brand-bg-1 flex flex-col tablet:flex-row  desktop:gap-0 desktop:flex-col `}
             >
-                <Box className={'flex flex-col max-w-80 px-3'}>
-                    <p className={'roboto-bold pt-10 text-[22px] '}>
+                <Box className={'flex flex-col tablet:max-w-80 px-3'}>
+                    <p
+                        className={
+                            'text-center tablet:text-left roboto-bold pt-10 tablet:text-[22px] '
+                        }
+                    >
                         27 day Grand Scandinavia tour
                         <span className={'roboto-regular'}>
                             {' '}
@@ -29,10 +33,17 @@ export function Banner() {
                             mb: '10px',
                         }}
                     />
-                    <p className={'text-[11px] text-nowrap mb-1'}>
+                    <p
+                        className={
+                            'text-center tablet:text-left text-[11px] text-nowrap mb-1'
+                        }
+                    >
                         Per person twin share from
                     </p>
-                    <Box className={'text-[40px] '} sx={{}}>
+                    <Box
+                        className={'text-center tablet:text-left text-[40px] '}
+                        sx={{}}
+                    >
                         $6,999*
                     </Box>
                 </Box>
