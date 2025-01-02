@@ -45,7 +45,7 @@ This ReadMe will provide some basic answers to getting Webjet UI setup and runni
 - Open `http://localhost:4173/` in your browser to view the built website. The terminal window should list the url to open if it is different to this one.
 - The project should be built using vite and a `dist` folder will appear in the root of this repo.
 - You can simply upload the dist folder to any web hosting provider like netlify and it will deploy the site for you.
-- Many web hosting services allow you to integrate with GitHub. By linking your repository the webhost can automatically deploy changes as a production ready website.
+- Many web hosting services allow you to integrate with GitHub. By linking your repository the web host can automatically deploy changes as a production ready website.
 
 ## How can I see WebjetUI?
 
@@ -54,7 +54,7 @@ A deployed version of the site can be accessed at https://webjetui.netlify.app/
 ## How Breakpoints work in the code?
 
 - The breakpoints are mentioned inside the `tailwind.config.js` file.
-- Where the breakpoint is not explicitly mentioned it is treated as the code for mobile and above. If another breakpoint follows it with a competing style then once the breakpoint is met the style will be overriden with the other style.
+- Where the breakpoint is not explicitly mentioned it is treated as the code for mobile and above. If another breakpoint follows it with a competing style then once the breakpoint is met the style will be overridden with the other style.
 - The tablet breakpoint `'tablet': '768px'` describes the situation where the width/viewport is at a minimum of `768px` or above.
 - The laptop breakpoint `'laptop': '992px'` describes the situation where the width/viewport is at a minimum of `992px` or above.
 - The desktop breakpoint `'desktop': '1200px'` describes the situation where the width/viewport is at a minimum of `1200px` or above.
@@ -93,7 +93,7 @@ Prettier is used across this codebase for automated code formatting. You may be 
 ## Smallest supported devices
 
 - Officially the smallest supported device is the iPhone SE iPhone SE (2nd generation) - 2020 or greater with the latest software updates. The screen width of this in pixels is `375px`.
-- WebjetUI should work at `300px` aswell. Any lower width and the experience will be severely compromised.
+- WebjetUI should work at `300px` as-well. Any lower width and the experience will be severely compromised.
 
 ## Design Decisions and Limitations
 
@@ -101,7 +101,7 @@ Prettier is used across this codebase for automated code formatting. You may be 
 - Docker compose was used to accommodate a growing code base. We can easily spin up other services/backends using the compose file compared to docker run.
 - Project does not describe any fonts, font sizes, padding, margins, colours. To make estimates of these value I used various tools and technology such as Figma combined with my best judgement where appropriate. For example the UI seems to be using the Roboto font which would also match with fonts used across webjet.com.au.
 - At the time of developing React 19 has just been released. I still opted for React 18 as this has been used in the field for longer than the latest version which is helpful for the stability of the project. It will also be supported for quite some time before we need to upgrade.
-- Certain components are not shown in the mockups e.g. filters section is not displayed in the mockup for tablet and mobile. Best judgement is used when mockup for components do not exist or are missing from a particular size display.
+- Certain components are not shown in the mock-ups e.g. filters section is not displayed in the mock-up for tablet and mobile. Best judgement is used when mock-up for components do not exist or are missing from a particular size display.
 - Material UI (MUI) is a component library that was added to speed up app development. MUI contains prebuilt components that are performant and compliant with web standards.
 - Hotel Star Rating System: Since a hotel could receive a decimal point rating e.g `4.5 out of 5` stars a decision was made to treat the rating system as `X and up`. Here X becomes the lowest selected value. For example if the smallest checkbox selected is `2` then display all hotels with a rating of `2 or greater`. If no checkboxes are selected we would rather show the user all the hotels because we want to try to avoid the situation where no hotels are being displayed to increase conversions. When the smallest rating of 1 is selected, regardless of any other selections all hotels will be displayed that match the other filter criteria as the system adopts a `X & up` approach. Ideally this control would use a range slider to simplify its use and understandability to the end user.
 - To communicate more information to a user certain UI elements may have been added e.g. rating system text which shows which hotels will be displayed.

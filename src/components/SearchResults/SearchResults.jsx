@@ -5,6 +5,10 @@ import Box from '@mui/material/Box';
 import SearchIcon from '@mui/icons-material/Search';
 import Typography from '@mui/material/Typography';
 
+/**
+ * This component is displayed when no search results are found.
+ * @returns {JSX.Element}
+ */
 function NoSearchResultsFound() {
     return (
         <Fragment>

@@ -8,6 +8,12 @@ Stars.propTypes = {
     isFilter: PropTypes.bool,
 };
 
+/**
+ * This is used to show stars inside the UI. Stars are displayed in the filters and the hotel search results.
+ * @param numberOfStars - this is the number of stars to show.
+ * @param isFilter - if this is set to true then the component will return a & up at the end of the stars.
+ * @returns {JSX.Element}
+ */
 export default function Stars({ numberOfStars, isFilter = true }) {
     let fraction = false;
     if (numberOfStars % 1 === 0.5) {
