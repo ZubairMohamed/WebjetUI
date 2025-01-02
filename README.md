@@ -38,7 +38,7 @@ This ReadMe will provide some basic answers to getting Webjet UI setup and runni
 
 ## How to build and deploy Webjet UI on a Server
 
-- Open terminal and make sure you have npm and node working by following the nvm guide.
+- Open terminal and make sure you have npm and node working by following the [nvm guide above and having dependencies installed.](#Run-Webjet-UI-using-NodeJS-for-Local-Development)
 - In terminal navigate to the root of this repo using `cd`.
 - Type and run `npm run build`.
 - To serve the files locally from the dist folder you can run `npm run preview`.
@@ -99,13 +99,31 @@ Prettier is used across this codebase for automated code formatting. You may be 
 
 - This project uses Vite to bootstrap and build the React project. There are other tools available to do this like create react app etc.
 - Docker compose was used to accommodate a growing code base. We can easily spin up other services/backends using the compose file compared to docker run.
-- Project does not describe any fonts, font sizes, padding, margins, colours. To make estimates of these value I used various tools and technology such as Figma combined with my best judgement where appropriate. For example the UI seems to be using the Roboto font which would also match with fonts used across webjet.com.au.
+- Project does not describe any fonts, font sizes, padding, margins, colours. To make estimates of these value I used various tools and technologies such as Figma combined with my best judgement where appropriate. For example the UI seems to be using the Roboto font which would also match with fonts used across webjet.com.au.
 - At the time of developing React 19 has just been released. I still opted for React 18 as this has been used in the field for longer than the latest version which is helpful for the stability of the project. It will also be supported for quite some time before we need to upgrade.
 - Certain components are not shown in the mock-ups e.g. filters section is not displayed in the mock-up for tablet and mobile. Best judgement is used when mock-up for components do not exist or are missing from a particular size display.
 - Material UI (MUI) is a component library that was added to speed up app development. MUI contains prebuilt components that are performant and compliant with web standards.
-- Hotel Star Rating System: Since a hotel could receive a decimal point rating e.g `4.5 out of 5` stars a decision was made to treat the rating system as `X and up`. Here X becomes the lowest selected value. For example if the smallest checkbox selected is `2` then display all hotels with a rating of `2 or greater`. If no checkboxes are selected we would rather show the user all the hotels because we want to try to avoid the situation where no hotels are being displayed to increase conversions. When the smallest rating of 1 is selected, regardless of any other selections all hotels will be displayed that match the other filter criteria as the system adopts a `X & up` approach. Ideally this control would use a range slider to simplify its use and understandability to the end user.
+- TailwindCSS is used to speed up development of the user interface. This fits well with the project since the code is split up into individual components.
+- Hotel Star Rating System: Since a hotel could receive a decimal point rating e.g. `4.5 out of 5` stars a decision was made to treat the rating system as `X and up`. Here X becomes the lowest selected value. For example if the smallest checkbox selected is `2` then display all hotels with a rating of `2 or greater`. If no checkboxes are selected we would rather show the user all the hotels because we want to try to avoid the situation where no hotels are being displayed to increase conversions. When the smallest rating of 1 is selected, regardless of any other selections all hotels will be displayed that match the other filter criteria as the system adopts a `X & up` approach. Ideally this control would use a range slider to simplify its use and understandability to the end user.
 - To communicate more information to a user certain UI elements may have been added e.g. rating system text which shows which hotels will be displayed.
 - To communicate that no search results were found an interface appears to tell the user to search again using different keywords or filters.
+
+## Config and Ignore Files Most if not all of these files
+
+Most if not all of these files can be found in the root of this repository.
+
+- `.dockerignore` - instructs docker to ignore certain files or folders when building the docker image.
+- `.gitignore` - files and folders to be ignored by git so that they are not part of the repo.
+- `.nvmrc` - file used by nvm to specify which version of node you are using for this project.
+- `..prettierignore` - file used by prettier to ignore code formatting files or directories mentioned in this file.
+- `.prettierrc.json` - this file contains configuration and settings used by the code formatter prettier.
+- `compose.yml` - this file contains instructions for Docker containing the services we will use in our application.
+- `Dockerfile` - instructions for Docker on how to build the docker image.
+- `eslint.config.js` - this file is used by ESLint which is a tool that helps developers to catch errors in JS or code.
+- `package.json` - contains a list of dependencies that are used by the application and can be installed using node.
+- `postcss.config.js` - file used by PostCSS to process css files and allows us to optimize and enhance our css e.g. autoprefixing, minification.
+- `tailwind.config.js` - file containing settings used by TailwindCSS a utility first CSS framework.
+- `vite.config.js` - file containing settings used by Vite a modern build tool and development server for web applications.
 
 #### React + Vite
 
