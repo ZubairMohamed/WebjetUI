@@ -108,7 +108,7 @@ Prettier is used across this codebase for automated code formatting. You may be 
 - To communicate more information to a user certain UI elements may have been added e.g. rating system text which shows which hotels will be displayed.
 - To communicate that no search results were found an interface appears to tell the user to search again using different keywords or filters.
 
-## Config and Ignore Files Most if not all of these files
+## Config and Ignore Files
 
 Most if not all of these files can be found in the root of this repository.
 
